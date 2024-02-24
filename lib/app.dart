@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'utils/theme/theme.dart';
-import 'app.dart';
-void main() {
-  runApp(const App());
-}
+import 'package:mobile_app/utils/theme/theme.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+///use this class to setup themes, inital bindingd and any animations and much more
+class App extends StatelessWidget {
+  const App({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,5 +14,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
