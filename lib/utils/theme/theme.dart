@@ -40,5 +40,6 @@ class GAppTheme {
     textTheme: GTextTheme.darkTextTheme,
     elevatedButtonTheme:GElevatedButtonTheme.darkElevatedButtonTheme,
     inputDecorationTheme: GTextFormFieldTheme.darkInputDecorationTheme,
+    
   );
 }
