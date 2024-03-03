@@ -1,6 +1,6 @@
 # mobile_app
 
-A Flutter project for Ecommerce.
+A  Ecommerce Mobile App using Flutter.
 
 #commands 
 <br><br>
