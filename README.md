@@ -1,6 +1,10 @@
 # mobile_app
 
-A new Flutter project.
+A Flutter project for Ecommerce.
+
+#commands 
+flutter pub get
+flutter pub upgrade
 
 ## Getting Started
 
