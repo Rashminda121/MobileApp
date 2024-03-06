@@ -1,39 +1,45 @@
 import 'package:flutter/material.dart';
 
-class GElevatedButtonTheme{
-  GElevatedButtonTheme._();
+//light & dark elevated button themes
+class TelavatedButtonTheme{
+  TelavatedButtonTheme._();
 
 
-///--Light Theme
-static final lightElevatedButtonTheme = ElevatedButtonThemeData(
-  style: ElevatedButton.styleFrom(
-    elevation: 0,
-    foregroundColor: Colors.white,
-    backgroundColor: Colors.green,
-    disabledForegroundColor: Colors.grey,
-    disabledBackgroundColor: Colors.grey,
-    side: const BorderSide(color: Colors.green),
-    padding: const EdgeInsets.symmetric(vertical: 18),
-    textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color:Colors.white),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12)),
-  ),
-);
-  
-  ///--Dark Theme
-  static final darkElevatedButtonTheme = ElevatedButtonThemeData(
+  //light theme
+  static final lightElavatedButtonTheme= ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      elevation: 0,
+      elevation:0,
       foregroundColor: Colors.white,
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.blue,
       disabledForegroundColor: Colors.grey,
       disabledBackgroundColor: Colors.grey,
-      side: const BorderSide(color: Colors.green),
+      side: const BorderSide(color:Colors.blue),
       padding: const EdgeInsets.symmetric(vertical: 18),
-      textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color:Colors.white),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12)),
+      textStyle: const TextStyle(fontSize: 16, color:Colors.white, fontWeight: FontWeight.w600 ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+
+
     ),
   );
-  
+
+  //dark theme
+  static final darkElavatedButtonTheme= ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      elevation:0,
+      foregroundColor: Colors.white,
+      backgroundColor: Colors.blue,
+      disabledForegroundColor: Colors.grey,
+      disabledBackgroundColor: Colors.grey,
+      side: const BorderSide(color:Colors.blue),
+      padding: const EdgeInsets.symmetric(vertical: 18),
+      textStyle: const TextStyle(fontSize: 16, color:Colors.white, fontWeight: FontWeight.w600 ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+
+
+    ),
+  );
+
+
+
+
 }

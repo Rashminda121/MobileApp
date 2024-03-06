@@ -1,61 +1,56 @@
 import 'package:flutter/material.dart';
 
-class GColors{
-  GColors._();
+class TColors{
+  TColors._();
 
-  //app basic colors
-  static const Color primary = Color.fromARGB(255, 0, 197, 26);
-  static const Color secondary = Color.fromARGB(255, 219, 219, 13);
-  static const Color accent = Color.fromARGB(255, 235, 104, 11);
+  //App Basic Color
+  static const Color primaryColor = Color(0xFF4B68FF);
+  static const Color secondary = Color(0xFFFFE24B);
+  static const Color accent = Color(0xFFb0c7ff);
 
-  //gradiant color
-  static const Gradient linerGradient = LinearGradient(
-    begin: Alignment(0.0,0.0),
-    end: Alignment(0.707,-0.707),
-    colors:[
-      Color(0xffff9a9e),
-      Color(0xfffad0c4),
-      Color(0xfffad0c4),
-    ]
-  );
+  //Gradient Color
+  static const Gradient linearGradient= LinearGradient(colors: [
+    Color(0)
+  ]);
 
-  //text colors
-  static const Color textPrimary = Color.fromARGB(255, 0, 0, 0);
-  static const Color textSecondary = Color.fromARGB(255, 103, 103, 103);
-  static const Color textWhite = Colors.white;
+  //Text Color
+  static const Color textprimary = Color(0xFF333333);
+  static const Color textsecondary = Color(0xFF656564);
+  static const Color textWhite= Color(0xffffffff);
 
-  //background colors
-  static const Color light = Color.fromARGB(255, 255, 255, 255);
-  static const Color dark = Color.fromARGB(255, 0, 0, 0);
-  static const Color primaryBackground = Color.fromARGB(255, 245, 245, 245);
+  //Background Colors
+  static const Color light = Color(0xFFF6F6F6);
+  static const Color dark = Color(0xFF2727227);
+  static const Color primaryBackground= Color(0xFFF3F5FF);
 
-  //background container colors
-  static const Color lightContainer = Color.fromARGB(255, 255, 255, 255);
-  static Color darkContainer = Colors.white.withOpacity(0.1);
+  //Background Container Colors
+  static const Color lightContainer = Color (0xFFF6F6F6);
+  static Color darkContainer = Colors.white.withOpacity (0.1);
+
+  // Button Colors
+  static const Color buttonPrimary = Color (0xFF4b68ff);
+  static const Color buttonSecondary = Color (0xFF6C7570);
+  static const Color buttonDisabled = Color (0xFFC4C4C4);
+
+  // Border Colors
+  static const Color borderPrimary = Color (0xFFD9D909);
+  static const Color borderSecondary = Color (0xFFE6E6E6);
+
+  // Error and Validation Colors
+  static const Color error = Color (0xFFD32F2F);
+  static const Color success = Color (0xFF388E3C);
+  static const Color warning = Color (0xFFF57C00);
+  static const Color info = Color (0xFF1976D2);
+
+  // Neutral Shades
+  static const Color black = Color (0xFF232323);
+  static const Color darkerGrey = Color (0xFF4F4F4F);
+  static const Color darkGrey = Color (0xFF939393);
+  static const Color grey = Color (0xFFE0E0E0);
+  static const Color softGrey = Color (0xFFF4F4F4);
+  static const Color lightGrey = Color (0xFFF9F9F9);
+  static const Color white = Color (0xFFFFFFFF);
 
 
-  //Button Colors
-  static const Color buttonPrimary = Color.fromARGB(255, 0, 197, 26);
-  static const Color buttonSecondary = Color.fromARGB(255, 219, 219, 13);
-  static const Color buttonDisabled = Color.fromARGB(255, 159, 159, 159);
-
-  //Border Colors
-  static const Color borderPrimary = Color.fromARGB(255, 228, 228, 228);
-  static const Color borderSecondary = Color.fromARGB(255, 219, 219, 219);
-
-  //error and validation colors
-  static const Color error = Color.fromARGB(255, 255, 0, 0);
-  static const Color success = Color.fromARGB(255, 0, 113, 9);
-  static const Color warning = Color.fromARGB(255, 255, 153, 0);
-  static const Color info = Color.fromARGB(255, 0, 0, 255);
-
-  //Neutral shades
-  static const Color black = Color.fromARGB(255, 0, 0, 0);
-  static const Color darkerGrey = Color.fromARGB(255, 51, 51, 51);
-  static const Color darkGrey = Color.fromARGB(255, 102, 102, 102);
-  static const Color grey = Color.fromARGB(255, 153, 153, 153);
-  static const Color lightGrey = Color.fromARGB(255, 204, 204, 204);
-  static const Color white = Color.fromARGB(255, 255, 255, 255);
-  
 
 }
