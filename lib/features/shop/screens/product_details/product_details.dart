@@ -5,6 +5,15 @@ class ProductDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: SingleChildScrollView(child: Column()));
+    return Scaffold(
+        body: SingleChildScrollView(
+            child: Column(
+      children: [
+        /// 1- Product image Slider
+        TCurvedEdgesWidget(
+          child: Container(),
+        ),
+      ],
+    )));
   }
 }
