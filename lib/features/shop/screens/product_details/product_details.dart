@@ -3,6 +3,7 @@ import 'package:mobile_app/common/widgets/custom_shapes/curved_edges/curved_edge
 import 'package:mobile_app/utils/helpers/helper_functions.dart';
 import 'package:mobile_app/utils/constants/colors.dart';
 import 'package:mobile_app/utils/constants/image_strings.dart';
+import 'package:mobile_app/utils/constants/sizes.dart';
 
 class ProductDetail extends StatelessWidget {
   const ProductDetail({super.key});
@@ -18,9 +19,16 @@ class ProductDetail extends StatelessWidget {
             TCurvedEdgesWidget(
               child: Container(
                 color: dark ? TColors.darkerGrey : TColors.light,
-                child: Stack(
+                child: const Stack(
                   children: [
-                    Image(image: AssetImage(TImages.productImage1)),
+                    SizedBox(
+                        height: 400,
+                        child: Padding(
+                          padding: EdgeInsets.all(TSizes.productImageRadius),
+                          child: Center(
+                              child: Image(
+                                  image: AssetImage(TImages.productImage1))),
+                        )),
                   ],
                 ),
               ),
