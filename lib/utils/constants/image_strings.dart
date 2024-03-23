@@ -11,7 +11,5 @@ class TImages {
   static const String onboard1 = "assets/images/on_boarding_images/w1.gif";
   static const String onboard2 = "assets/images/on_boarding_images/w2.jpg";
   static const String onboard3 = "assets/images/on_boarding_images/w1.gif";
-
-
-
+  static const String productImage1 = "assets/images/on_boarding_images/w2.jpg";
 }
