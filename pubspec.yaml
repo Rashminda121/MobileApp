@@ -20,6 +20,7 @@ dependencies:
   flutter_native_splash: ^2.3.11
   smooth_page_indicator: ^1.1.0
 
+
   #---Icons----#
   iconsax: ^0.0.8
   cupertino_icons: ^1.0.6
@@ -40,9 +41,14 @@ flutter:
     - assets/icons/brands/
     - assets/images/
     - assets/images/on_boarding_images/w1.gif
+<<<<<<< HEAD
+    - assets/images/on_boarding_images/pay.jpg
+    - assets/images/on_boarding_images/deliver.jpg
+=======
     - assets/images/on_boarding_images/w2.jpg
     - assets/images/animations/
 
+>>>>>>> a98daafc7d7600f38628ba1987a6b88db39b9dae
   #---Local Fonts----#
   fonts:
     - family: Poppins
@@ -62,3 +68,26 @@ flutter:
           weight: 600
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 800
+flutter_native_splash:
+  color: "#FFFFFF"
+  color_dark: "#272727"
+  image: assets/logos/logo.png
+  image_dark: assets/logos/logo.png
+
+  android_12:
+    color: "#FFFFFF"
+    color_dark: "#FFFFFF"
+    image: assets/logos/logo.png
+    image_dark: assets/logos/logo.png
+    
+  android_14:
+    color: "#FFFFFF"
+    color_dark: "#FFFFFF"
+    image: assets/logos/logo.png
+    image_dark: assets/logos/logo.png
+
+  android_7:
+    color: "#FFFFFF"
+    color_dark: "#FFFFFF"
+    image: assets/logos/logo.png
+    image_dark: assets/logos/logo.png
