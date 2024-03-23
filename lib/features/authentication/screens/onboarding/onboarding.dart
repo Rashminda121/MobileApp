@@ -1,4 +1,3 @@
-
 import "package:flutter/material.dart";
 import "package:get/get.dart";
 import "package:iconsax/iconsax.dart";
@@ -17,7 +16,7 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller =Get.put(OnBoardingController());
+    final controller = Get.put(OnBoardingController());
 
     return Scaffold(
       body: Stack(
@@ -28,17 +27,17 @@ class OnboardingScreen extends StatelessWidget {
             onPageChanged: controller.updatePageIndicator,
             children: const [
               OnboardingPage(
-                image: TImages.onboard1,
+                image: TImages.hello,
                 title: TTexts.onBoardingTitle1,
                 subTitle: TTexts.onBoardingSubTitle1,
               ),
               OnboardingPage(
-                image: TImages.onboard2,
+                image: TImages.payment,
                 title: TTexts.onBoardingTitle2,
                 subTitle: TTexts.onBoardingSubTitle2,
               ),
               OnboardingPage(
-                image: TImages.onboard3,
+                image: TImages.deliver,
                 title: TTexts.onBoardingTitle3,
                 subTitle: TTexts.onBoardingSubTitle3,
               ),
@@ -58,5 +57,3 @@ class OnboardingScreen extends StatelessWidget {
     );
   }
 }
-
-
