@@ -21,6 +21,7 @@ class ProductDetail extends StatelessWidget {
                 color: dark ? TColors.darkerGrey : TColors.light,
                 child: const Stack(
                   children: [
+                    /// Main Large Image
                     SizedBox(
                         height: 400,
                         child: Padding(
@@ -29,6 +30,9 @@ class ProductDetail extends StatelessWidget {
                               child: Image(
                                   image: AssetImage(TImages.productImage1))),
                         )),
+
+                    ///imag slider
+                    TRoundedImage(imageURL: imageUrl)
                   ],
                 ),
               ),
