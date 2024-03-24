@@ -4,6 +4,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mobile_app/features/authentication/screens/signup.widgets/signup.dart';
 
+import '../../../../../navigation_menu.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
 
@@ -66,7 +67,7 @@ class TLoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Get.to(() => const NavigationMenu()),
                 child: const Text(TTexts.signIn),
               ),
             ),
@@ -78,7 +79,7 @@ class TLoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: () => Get.to(()=>const SignupScreen()),
+                onPressed: () => Get.to(() => const SignupScreen()),
                 child: const Text(TTexts.createAccount),
               ),
             ),
