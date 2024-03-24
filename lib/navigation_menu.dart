@@ -1,10 +1,12 @@
-import 'package:ecommerce_app/features/shop/screens/home/home.dart';
-import 'package:ecommerce_app/utils/constants/colors.dart';
-import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mobile_app/utils/constants/colors.dart';
+import 'package:mobile_app/utils/helpers/helper_functions.dart';
+
+import 'features/shop/screens/home/home.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
