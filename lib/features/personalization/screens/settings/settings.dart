@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mobile_app/common/widgets/list_tiles/user_profile_tile.dart';
-
+import 'package:iconsax/iconsax.dart';
 import '../../../../common/widgets/list_tiles/settings_menu_tiles.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -22,7 +22,7 @@ class SettingsScreen extends StatelessWidget {
                           .headlineMedium!
                           .apply(color: TColor:white))),
 
-                      const TUserProfileTile()
+                      const TUserProfileTile(),
                       const SizedBox(height: Tsizes.spaceBtwSections),
                     ],
                   ),
@@ -34,9 +34,7 @@ class SettingsScreen extends StatelessWidget {
 
                       //account settings
                       TSectionHeading(title: 'Account Settings', showActionButton: false),
-                      SizedBox((height: TSizes.spaceBtwItems),
-
-
+                      SizedBox(height: TSizes.spaceBtwItems),
                       
                           TSettingsMenuTile(
                             icon: Iconsax.safe_home,
@@ -45,37 +43,37 @@ class SettingsScreen extends StatelessWidget {
                             onTap: () => Get.to(() => const UserAddressScreen()),
                           ),
 
-                          TSettingsMenuTile(
+                          const TSettingsMenuTile(
                             icon: Iconsax.shopping_cart,
                             title: 'My Cart',
                             subtitle: 'Add, remove products and move to checkout',
                           ),
 
-                          TSettingsMenuTile(
+                          const TSettingsMenuTile(
                             icon: Iconsax.bag_tick,
                             title: 'My Orders',
                             subtitle: 'In-progress and completed orders',
                           ),
 
-                          TSettingsMenuTile(
+                          const TSettingsMenuTile(
                             icon: Iconsax.bank,
                             title: 'Bank Account',
                             subtitle: 'Withdraw balance to registered bank account',
                           ),
 
-                           TSettingsMenuTile(
-                            icon: Iconsax.discount_shope, 
+                           const TSettingsMenuTile(
+                            icon: Iconsax.discount_shape, 
                             title: 'My Coupons', 
                             subtitle: 'List of all the discounted coupons'
                           ),
 
-                           TSettingsMenuTile(
+                           const TSettingsMenuTile(
                             icon: Iconsax.notification, 
                             title: 'Notifications', 
                             subtitle: 'Set any kind of notification message'
                           ),
 
-                          TSettingsMenuTile(
+                          const TSettingsMenuTile(
                             icon: Iconsax.security_card, 
                             title: 'Account Privacy', 
                             subtitle: 'Manage data usage and connected accounts'
@@ -86,8 +84,8 @@ class SettingsScreen extends StatelessWidget {
                         SizedBox(height: TSizes.spaceBtwSections),
                         TSectionHeading(title: 'App Settings', showActionButton: false),
                         SizedBox(height: TSizes.spaceBtwItems),
-                        TSettingsMenuTile(
-                          icon: Iconsax.upload,
+                        const TSettingsMenuTile(
+                          icon: Iconsax.document_upload,
                           title: 'Load Data',
                           subtitle: 'Upload data to your cloud firebase',
                         ),
@@ -107,7 +105,7 @@ class SettingsScreen extends StatelessWidget {
                         ), 
 
 
-                      )
+                      
                     ],
                   ),
                 )

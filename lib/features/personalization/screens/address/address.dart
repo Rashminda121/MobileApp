@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/features/personalization/screens/address/widgets/single_address.dart';
+import 'package:iconsax/iconsax.dart';
 
 class UserAddressScreen extends StatelessWidget {
   const UserAddressScreen({super.key});
@@ -23,7 +24,7 @@ class UserAddressScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
             padding: EdgeInsets.all(TSizes.defaultSpace),
-            child: Column(
+            child: const Column(
               children: [
                 TSingleAddress(selectedAddress: true),
                 TSingleAddress(selectedAddress: false),
