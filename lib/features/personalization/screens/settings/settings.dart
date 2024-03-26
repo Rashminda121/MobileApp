@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:mobile_app/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mobile_app/features/personalization/screens/address/address.dart';
+import 'package:mobile_app/features/shop/screens/order/order.dart';
 import '../../../../common/widgets/list_tiles/settings_menu_tiles.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -49,10 +53,11 @@ class SettingsScreen extends StatelessWidget {
                             subtitle: 'Add, remove products and move to checkout',
                           ),
 
-                          const TSettingsMenuTile(
+                          TSettingsMenuTile(
                             icon: Iconsax.bag_tick,
                             title: 'My Orders',
                             subtitle: 'In-progress and completed orders',
+                            onTap: () => Get.to(() => const OrderScreen()),
                           ),
 
                           const TSettingsMenuTile(
