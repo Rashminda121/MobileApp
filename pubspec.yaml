@@ -41,14 +41,13 @@ flutter:
     - assets/icons/brands/
     - assets/images/
     - assets/images/on_boarding_images/w1.gif
-<<<<<<< HEAD
+
     - assets/images/on_boarding_images/pay.jpg
     - assets/images/on_boarding_images/deliver.jpg
-=======
+
     - assets/images/on_boarding_images/w2.jpg
     - assets/images/animations/
 
->>>>>>> a98daafc7d7600f38628ba1987a6b88db39b9dae
   #---Local Fonts----#
   fonts:
     - family: Poppins
