@@ -38,7 +38,6 @@ flutter:
   #---Local Assets----#
   assets:
     - assets/logos/
-    - assets/icons/brands/
     - assets/images/
     - assets/images/on_boarding_images/w1.gif
 
