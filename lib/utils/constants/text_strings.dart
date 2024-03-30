@@ -27,10 +27,11 @@ class TTexts {
   static const String orSignUpWith = "or sign up with";
   static const String iAgreeTo= "I agree to";
   static const String privacyPolicy="Privacy Policy";
-  static const String terasofUse = "Terms of use";
+  static const String termssofUse = "Terms of use";
   static const String verificationCode="verificationCode";
   static const String resendEmail = "Resend Email";
   static const String resendEmailIn = "Resend email in";
+  static const String and = "and";
 
 
 
