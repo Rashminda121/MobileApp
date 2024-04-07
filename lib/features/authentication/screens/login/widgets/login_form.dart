@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mobile_app/features/authentication/screens/signup.widgets/signup.dart';
-
-import '../../../../../navigation_menu.dart';
+import 'package:mobile_app/features/authentication/screens/signup/signup.dart';
+import 'package:mobile_app/features/shop/screens/product_details/product_details.dart'; // Import ProductDetails page
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
 
@@ -67,7 +65,13 @@ class TLoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => Get.to(() => const NavigationMenu()),
+                onPressed: () {
+                  // Navigate to ProductDetails page when sign-in button is pressed
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ProductDetail()),
+                  );
+                },
                 child: const Text(TTexts.signIn),
               ),
             ),
@@ -79,7 +83,7 @@ class TLoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: () => Get.to(() => const SignupScreen()),
+                onPressed: () => Get.to(()=>const SignupScreen()),
                 child: const Text(TTexts.createAccount),
               ),
             ),
