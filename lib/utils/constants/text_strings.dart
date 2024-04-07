@@ -9,11 +9,12 @@ class TTexts {
 
   // -- Home
   static const String homeAppbarTitle = "Good day for shopping";
-  static const String homeAppbarSubTitle = "Taimoor Sikander";
+  static const String homeAppbarSubTitle = "Sample Username";
+  static const String and="and";
 
   //Authentication Form Text
   static const String firstName= "First Name";
-  static const String lastName= "Last Nane";
+  static const String lastName= "Last Name";
   static const String email= "E-Mail";
   static const String password = "Password";
   static const String newPassword = "New Password";
@@ -27,11 +28,14 @@ class TTexts {
   static const String orSignUpWith = "or sign up with";
   static const String iAgreeTo= "I agree to";
   static const String privacyPolicy="Privacy Policy";
-  static const String and="and";
-  static const String termsOfUse = "Terms of use";
+  static const String terasofUse = "Terms of use";
   static const String verificationCode="verificationCode";
   static const String resendEmail = "Resend Email";
   static const String resendEmailIn = "Resend email in";
+  static const String tContinue = "Continue";
+  static const String submit = "Submit";
+  static const String done = "Done";
+
 
 
 
@@ -46,4 +50,11 @@ class TTexts {
   static const String confirmEmail = "Verify your email address!";
   static const String confirmEmailSubTitle = "Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.";
   static const String emailNotReceivedMessage = "Didn't get the email? Check your junk/spam or resend it.";
+  static const String yourAccountCreatedTitle = "Your account successfully created!";
+  static const String yourAccountCreatedSubTitle = "Welcome to Your Ultimate Shopping Destination: Your Account is Created";
+
+
+
+
+
 }
