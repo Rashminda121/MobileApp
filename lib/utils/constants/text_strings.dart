@@ -13,7 +13,7 @@ class TTexts {
 
   //Authentication Form Text
   static const String firstName= "First Name";
-  static const String LastName= "Last Nane";
+  static const String lastName= "Last Nane";
   static const String email= "E-Mail";
   static const String password = "Password";
   static const String newPassword = "New Password";
@@ -27,10 +27,11 @@ class TTexts {
   static const String orSignUpWith = "or sign up with";
   static const String iAgreeTo= "I agree to";
   static const String privacyPolicy="Privacy Policy";
-  static const String terasofUse = "Terms of use";
+  static const String termssofUse = "Terms of use";
   static const String verificationCode="verificationCode";
   static const String resendEmail = "Resend Email";
   static const String resendEmailIn = "Resend email in";
+  static const String and = "and";
 
 
 
