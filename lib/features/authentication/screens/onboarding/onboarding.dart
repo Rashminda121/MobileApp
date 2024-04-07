@@ -1,3 +1,4 @@
+
 import "package:flutter/material.dart";
 import "package:get/get.dart";
 import "package:mobile_app/features/authentication/screens/onboarding/widgets/onboardingDotNavigation.dart";
@@ -14,7 +15,7 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(OnBoardingController());
+    final controller =Get.put(OnBoardingController());
 
     return Scaffold(
       body: Stack(
@@ -55,3 +56,5 @@ class OnboardingScreen extends StatelessWidget {
     );
   }
 }
+
+
