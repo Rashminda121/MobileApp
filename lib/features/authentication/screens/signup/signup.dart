@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:mobile_app/utils/constants/text_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import 'package:iconsax/iconsax.dart';
-import '../../../../utils/helpers/helper_functions.dart';
+
 import '../../../../utils/constants/colors.dart';
 
 
@@ -33,7 +33,7 @@ class SignupScreen extends StatelessWidget {
                 const SizedBox(height: TSizes.spaceBtwSections),
 
                 ///form
-                TSignupForm(),
+                const TSignupForm(),
               const SizedBox (height: TSizes.spaceBtwSections),
                 ///Divider
                TFormDivider(dividerText: TTexts.orSignInWith.capitalize!),
