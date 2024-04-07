@@ -30,7 +30,7 @@ class LoginScreen extends StatelessWidget {
               const TLoginForm(),
 
               ///Divider
-              TFormDivider(dark: dark, dividerText: TTexts.orSignInWith.capitalize!),
+              TFormDivider(dark: dark, dividerText: TTexts.orSignInWith.capitalize!,),
 
               const SizedBox(
                 height: TSizes.sm,
