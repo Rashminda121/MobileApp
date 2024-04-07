@@ -1,10 +1,8 @@
 import "package:flutter/material.dart";
 import "package:get/get.dart";
-import "package:iconsax/iconsax.dart";
 import "package:mobile_app/features/authentication/screens/onboarding/widgets/onboardingDotNavigation.dart";
 import "package:mobile_app/features/authentication/screens/onboarding/widgets/onboardingNextButton.dart";
 import "package:mobile_app/features/authentication/screens/onboarding/widgets/onboarding_skip.dart";
-import "package:smooth_page_indicator/smooth_page_indicator.dart";
 
 import "../../../../utils/constants/image_strings.dart";
 import "../../../../utils/constants/text_strings.dart";

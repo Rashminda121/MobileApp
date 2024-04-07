@@ -1,7 +1,6 @@
 
 import "package:flutter/material.dart";
 import "package:get/get.dart";
-import "package:iconsax/iconsax.dart";
 import "package:mobile_app/features/authentication/screens/login/widgets/login_header.dart";
 
 import "../../../../common/styles/spacing_styles.dart";
@@ -31,7 +30,7 @@ class LoginScreen extends StatelessWidget {
               const TLoginForm(),
 
               ///Divider
-              TFormDivider(dark: dark, dividerText: TTexts.orSignInWith.capitalize!,),
+              TFormDivider(dark: dark, dividerText: TTexts.orSignInWith.capitalize!),
 
               const SizedBox(
                 height: TSizes.sm,
