@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:mobile_app/utils/theme/custom_themes/botttom_sheet_theme.dart';
 
 import 'custom_themes/appbar_theme.dart';
+import 'custom_themes/botttom_sheet_theme.dart';
 import 'custom_themes/checkbox_theme.dart';
 import 'custom_themes/chip_theme.dart';
 import 'custom_themes/elevated_button_theme.dart';
@@ -15,20 +15,19 @@ class TAppTheme {
 
   //light theme
   static ThemeData lightTheme = ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Poppins',
-        brightness: Brightness.light,
-        primaryColor: Colors.blue,
-        scaffoldBackgroundColor: Colors.white,
-        textTheme:TTextTheme.lightTextTheme,
-        chipTheme: TChipTheme.lightCheckboxTheme,
-        appBarTheme: TAppBarTheme.lightAppBarTheme,
-        checkboxTheme: TCheckboxTheme.lightCheckboxTheme,
-        bottomSheetTheme: TBottomSheetTheme.lightBottomSheetTheme,
-        elevatedButtonTheme: TelavatedButtonTheme.lightElavatedButtonTheme,
-        outlinedButtonTheme: TOutlineButtonTheme.lightOutlineButtonTheme,
-        inputDecorationTheme: TTextFormFieldTheme.lightInputDecorationTheme,
-
+    useMaterial3: true,
+    fontFamily: 'Poppins',
+    brightness: Brightness.light,
+    primaryColor: Colors.blue,
+    scaffoldBackgroundColor: Colors.white,
+    textTheme: TTextTheme.lightTextTheme,
+    chipTheme: TChipTheme.lightCheckboxTheme,
+    appBarTheme: TAppBarTheme.lightAppBarTheme,
+    checkboxTheme: TCheckboxTheme.lightCheckboxTheme,
+    bottomSheetTheme: TBottomSheetTheme.lightBottomSheetTheme,
+    elevatedButtonTheme: TelavatedButtonTheme.lightElavatedButtonTheme,
+    outlinedButtonTheme: TOutlineButtonTheme.lightOutlineButtonTheme,
+    inputDecorationTheme: TTextFormFieldTheme.lightInputDecorationTheme,
   );
 
   //dark theme
@@ -38,7 +37,7 @@ class TAppTheme {
     brightness: Brightness.dark,
     primaryColor: Colors.blue,
     scaffoldBackgroundColor: Colors.black,
-    textTheme:TTextTheme.darkTextTheme,
+    textTheme: TTextTheme.darkTextTheme,
     chipTheme: TChipTheme.darkCheckboxTheme,
     appBarTheme: TAppBarTheme.darkAppBarTheme,
     checkboxTheme: TCheckboxTheme.darkCheckboxTheme,
