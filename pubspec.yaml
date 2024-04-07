@@ -19,14 +19,20 @@ dependencies:
   url_launcher: ^6.0.9
   flutter_native_splash: ^2.3.11
   smooth_page_indicator: ^1.1.0
+  carousel_slider: ^4.2.1
 
+  #---product specific----#
+  readmore: ^3.0.0
+  flutter_rating_bar: ^4.0.1
 
   #---Icons----#
   iconsax: ^0.0.8
   cupertino_icons: ^1.0.6
+
   # State Management
   get: ^4.6.6
   get_storage: ^2.1.1
+
 #---end packages----#
 dev_dependencies:
   flutter_test:
@@ -38,8 +44,13 @@ flutter:
   #---Local Assets----#
   assets:
     - assets/logos/
-    - assets/icons/brands/
     - assets/images/
+    - assets/images/payment/
+    - assets/images/reviews/
+    - assets/images/user/
+    - assets/images/banners/
+    - assets/images/products/
+    - assets/icons/categories/
     - assets/images/on_boarding_images/w1.gif
     - assets/images/on_boarding_images/w2.jpg
     - assets/images/animations/
@@ -63,26 +74,3 @@ flutter:
           weight: 600
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 800
-flutter_native_splash:
-  color: "#FFFFFF"
-  color_dark: "#272727"
-  image: assets/logos/logo.png
-  image_dark: assets/logos/logo.png
-
-  android_12:
-    color: "#FFFFFF"
-    color_dark: "#FFFFFF"
-    image: assets/logos/logo.png
-    image_dark: assets/logos/logo.png
-    
-  android_14:
-    color: "#FFFFFF"
-    color_dark: "#FFFFFF"
-    image: assets/logos/logo.png
-    image_dark: assets/logos/logo.png
-
-  android_7:
-    color: "#FFFFFF"
-    color_dark: "#FFFFFF"
-    image: assets/logos/logo.png
-    image_dark: assets/logos/logo.png
