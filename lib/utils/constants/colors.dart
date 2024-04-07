@@ -10,7 +10,7 @@ class TColors{
 
   //Gradient Color
   static const Gradient linearGradient= LinearGradient(colors: [
-    Color(0)
+    Color(0x00000000)
   ]);
 
   //Text Color
@@ -20,7 +20,7 @@ class TColors{
 
   //Background Colors
   static const Color light = Color(0xFFF6F6F6);
-  static const Color dark = Color(0xFF2727227);
+  static const Color dark = Color(0xff2727227);
   static const Color primaryBackground= Color(0xFFF3F5FF);
 
   //Background Container Colors
