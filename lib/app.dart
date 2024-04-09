@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:mobile_app/bindings/general_bindings.dart';
+import 'package:mobile_app/utils/constants/colors.dart';
 import 'package:mobile_app/utils/theme/theme.dart';
 
 import 'features/authentication/screens/onboarding/onboarding.dart';
@@ -17,7 +19,8 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      home: const OnboardingScreen(),
+      initialBinding:GeneralBindings(),
+      home: const Scaffold(backgroundColor: TColors.primary, body: Center(child: CircularProgressIndicator(color: Colors.white))),
     );
   }
 }
