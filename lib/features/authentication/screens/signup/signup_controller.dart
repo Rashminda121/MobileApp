@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_app/utils/helpers/network_manager.dart';
+import 'package:mobile_app/utils/popups/full_screen_loader.dart';
+import 'package:mobile_app/utils/constants/image_strings.dart';
+import 'package:mobile_app/utils/popups/loaders.dart';
 
 class SignupController extends GetxController {
   static SignupController get instance => Get.find();
+  SignupController();
 
     ///Variables
     final email = TextEditingController();
@@ -16,12 +21,21 @@ class SignupController extends GetxController {
   Future<void> signup() async {
     try {
   // Start Loading
+    TFullScreenLoader.openLoadingDialog('We are processing your information...', TImages.docerAnimation);
+
   // Check Internet Connectivity
- 
+  final isConnected = await NetworkManager.instance.isConnected();
+  if (!isConnected){
+    TFullScreenLoader.stopLoading();
+    return;
+  }
 
 
   // Form Validation
-  
+  if (!signupFormKey.currentState!.validate()) {
+    TFullScreenLoader.stopLoading();
+    return;
+  }
 
   // Privacy Policy Check
 
@@ -32,10 +46,11 @@ class SignupController extends GetxController {
 
   // Show Success Message
   // Move to Verify Email Screen
-} catch (e) {
-  // Show some Generic Error to the user
-} finally {
-  // Remove Loader
-}
-}
+      } catch (e) {
+        TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+        // Show some Generic Error to the user
+      } finally {
+        // Remove Loader
+    }
+  }
 }
