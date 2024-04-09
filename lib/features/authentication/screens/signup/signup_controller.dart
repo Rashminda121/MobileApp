@@ -10,6 +10,7 @@ class SignupController extends GetxController {
   SignupController();
 
     ///Variables
+    final hidePassword = true.obs;
     final email = TextEditingController();
     final lastName = TextEditingController();
     final username = TextEditingController();
@@ -25,17 +26,13 @@ class SignupController extends GetxController {
 
   // Check Internet Connectivity
   final isConnected = await NetworkManager.instance.isConnected();
-  if (!isConnected){
-    TFullScreenLoader.stopLoading();
-    return;
-  }
+  if (!isConnected) return;
+  
 
 
   // Form Validation
-  if (!signupFormKey.currentState!.validate()) {
-    TFullScreenLoader.stopLoading();
-    return;
-  }
+  if (!signupFormKey.currentState!.validate())return;
+  
 
   // Privacy Policy Check
 
@@ -50,7 +47,7 @@ class SignupController extends GetxController {
         TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
         // Show some Generic Error to the user
       } finally {
-        // Remove Loader
+        TFullScreenLoader.stopLoading();
     }
   }
 }
