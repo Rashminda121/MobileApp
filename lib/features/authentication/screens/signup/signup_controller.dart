@@ -67,6 +67,9 @@ class SignupController extends GetxController {
         profilePicture: '',
       );
 
+      final userRepository = Get.put(UserRepository());
+      await userRepository.saveUserRecord(newUser);
+
       // Show Success Message
       // Move to Verify Email Screen
     } catch (e) {
