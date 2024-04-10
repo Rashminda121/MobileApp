@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:mobile_app/features/shop/controllers/category_ontroller.dart';
+import 'package:mobile_app/features/shop/controllers/category_controller.dart';
 import 'package:mobile_app/features/shop/screens/store/widgets/category_tab.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/appbar/tabbar.dart';
