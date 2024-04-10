@@ -2,6 +2,7 @@
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:get/get.dart";
+import "package:mobile_app/features/authentication/screens/signup/verify_email_controller.dart";
 
 import "../../../../common/widgets/success_screen/success_screen.dart";
 import "../../../../utils/constants/image_strings.dart";
@@ -16,7 +17,7 @@ class VerifyEmailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(const VerifyEmailScreen());
+    final controller = Get.put(VerifyEmailController());
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
