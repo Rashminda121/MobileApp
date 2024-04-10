@@ -23,11 +23,12 @@ class AuthenticationRepository extends GetxController {
   @override
   void onReady() {
     FlutterNativeSplash.remove();
-    screenRedirect(_auth.currentUser);
+    screenRedirect();
   }
 
   /// Function to Show Relevant Screen
-  screenRedirect(User? user) async {
+  screenRedirect() async {
+    final user = _auth.currentUser;
     if (user != null){
         if(user.emailVerified){
           Get.offAll(() => const NavigationMenu());
