@@ -55,7 +55,7 @@ class AuthenticationRepository extends GetxController {
     }
 }
   /// [EmailAuthentication] - REGISTER
-  Future<void> sendEmailVeridication() async {
+  Future<void> sendEmailVerification() async {
     try {
       await _auth.currentUser?.sendEmailVerification();
     } on FirebaseAuthException catch (e) {
