@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:mobile_app/data/repositories.authentication/authentication/authentication_repository.dart';
+import 'package:mobile_app/features/personalization/controllers/user_controller.dart';
 import 'package:mobile_app/utils/constants/image_strings.dart';
 import 'package:mobile_app/utils/helpers/network_manager.dart';
 import 'package:mobile_app/utils/popups/full_screen_loader.dart';
@@ -70,7 +71,13 @@ Future<void> googleSignIn() async {
 
       //google authentication
       final userCredentials = await AuthenticationRepository.instance.signInWithGoogle();
+
+      //save user record
+      await UserController.instance.saveUserRecord(userCredentials);
+
+      TFullScreenLoader.stopLoading();
   }catch (e){
+    TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
   }
 }
