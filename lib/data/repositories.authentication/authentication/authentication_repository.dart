@@ -11,7 +11,6 @@ import 'package:flutter/services.dart';
 import 'package:mobile_app/features/authentication/screens/signup/verify_email.dart';
 import 'package:mobile_app/navigation_menu.dart'; // Add this line to import PlatformException
 
-
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
 
@@ -38,10 +37,12 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-///login
-Future<UserCredential> loginWithEmailAndPassword(String email, String password) async {
+  ///login
+  Future<UserCredential> loginWithEmailAndPassword(
+      String email, String password) async {
     try {
-      return await _auth.signInWithEmailAndPassword(email: email, password: password);
+      return await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -55,11 +56,12 @@ Future<UserCredential> loginWithEmailAndPassword(String email, String password) 
     }
   }
 
-
-///registerWithEmailAndPassword
-  Future<UserCredential> registerWithEmailAndPassword(String email, String password) async {
+  ///registerWithEmailAndPassword
+  Future<UserCredential> registerWithEmailAndPassword(
+      String email, String password) async {
     try {
-      return await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      return await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -76,6 +78,22 @@ Future<UserCredential> loginWithEmailAndPassword(String email, String password) 
   Future<void> sendEmailVerification() async {
     try {
       await _auth.currentUser?.sendEmailVerification();
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'something went wrong. Please try again';
+    }
+  }
+
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
