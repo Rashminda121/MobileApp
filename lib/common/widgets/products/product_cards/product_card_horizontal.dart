@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -14,11 +13,18 @@ import '../../texts/product_title_text.dart';
 import '../../texts/t_brand_title_text_with_verified_icon.dart';
 
 class TProductCardHorizontal extends StatelessWidget {
-  const TProductCardHorizontal({super.key});
+  const TProductCardHorizontal({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
+
+    
+    final controller ProductController.instance;
+    final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
+    
     return Container(
       width: 310,
       padding: const EdgeInsets.all(1),
@@ -36,11 +42,13 @@ class TProductCardHorizontal extends StatelessWidget {
             child: Stack(
               children: [
                 ///thumbnail image
-                const SizedBox(
+                SizedBox(
                     height: 120,
                     width: 120,
                     child: TRoundedImage(
-                        imageUrl: TImages.product2, applyImageRadius: true)),
+                        imageUrl: product.thumbnail,
+                        applyImageRadius: true,
+                        isNetworkImage: true)),
 
                 ///-- Sale Tag
                 Positioned(
@@ -69,10 +77,10 @@ class TProductCardHorizontal extends StatelessWidget {
           ),
 
           ///details
-           SizedBox(
+          SizedBox(
             width: 172,
             child: Padding(
-              padding: const EdgeInsets.only(top: TSizes.sm,left: TSizes.sm),
+              padding: const EdgeInsets.only(top: TSizes.sm, left: TSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -86,9 +94,7 @@ class TProductCardHorizontal extends StatelessWidget {
                       TBrandTitleWithVerifiedIcon(title: 'Nike'),
                     ],
                   ),
-
                   const Spacer(),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -101,7 +107,8 @@ class TProductCardHorizontal extends StatelessWidget {
                           color: TColors.dark,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(TSizes.cardRadiusMd),
-                            bottomRight: Radius.circular(TSizes.productImageRadius),
+                            bottomRight:
+                                Radius.circular(TSizes.productImageRadius),
                           ),
                         ),
                         child: const SizedBox(
@@ -115,13 +122,8 @@ class TProductCardHorizontal extends StatelessWidget {
                           ),
                         ),
                       ),
-
-
                     ],
                   ),
-
-
-
                 ],
               ),
             ),
