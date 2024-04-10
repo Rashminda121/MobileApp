@@ -56,6 +56,12 @@ TFullScreenLoader.stopLoading();
 TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
 }
 }
-
-  
+///google signin auth
+Future<void> googleSignIn() async {
+  try{
+      TFullScreenLoader.openLoadingDialog('Logging you in..', TImages.docerAnimation);
+  }catch (e){
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+  }
+}
 }
