@@ -6,7 +6,7 @@ import 'package:mobile_app/features/authentication/screens/login/login.dart';
 import 'package:mobile_app/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart'; // Add this line to import PlatformException
 
 
@@ -55,3 +55,19 @@ class AuthenticationRepository extends GetxController {
     }
 }
   /// [EmailAuthentication] - REGISTER
+  Future<void> sendEmailVeridication() async {
+    try {
+      await _auth.currentUser?.sendEmailVerification();
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'something went wrong. Please try again';
+    }
+  }
+}
