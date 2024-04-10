@@ -57,13 +57,5 @@ TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
 }
 }
 
-  ///-- Remember Me
-  void rememberMeFunction() {
-    rememberMe.value = !rememberMe.value;
-  }
-
-  ///-- Show Password
-  void showPassword() {
-    hidePassword.value = !hidePassword.value;
-  }
+  
 }
