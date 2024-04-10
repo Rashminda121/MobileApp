@@ -37,15 +37,21 @@ class TLoginForm extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwInputFields,
             ),
-            TextFormField(
+
+            ///password
+            Obx(
+            ()=>TextFormField(
+              validator: (value) => TValidator.validatePassword(value),
               controller: controller.password,
-              validator:(value) => TValidator.validateEmptyText('Password',value),
-              decoration: const InputDecoration(
-                prefixIcon: Icon(Iconsax.password_check),
+              obscureText: controller.hidePassword.value,
+              decoration: InputDecoration(
                 labelText: TTexts.password,
-                suffixIcon: Icon(Iconsax.eye_slash),
+                prefixIcon: const Icon(Iconsax.password_check),
+                suffixIcon: IconButton(onPressed: () => controller.hidePassword.value = !controller.hidePassword.value,
+                icon: Icon (controller.hidePassword.value ? Iconsax.eye_slash : Iconsax.eye),),
               ),
             ),
+          ),
             const SizedBox(
               height: TSizes.spaceBtwInputFields / 2,
             ),
