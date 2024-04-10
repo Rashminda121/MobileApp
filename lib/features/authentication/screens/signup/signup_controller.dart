@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_app/data/repositories.authentication/authentication_repository.dart';
+import 'package:mobile_app/features/authentication/screens/signup/verify_email.dart';
 import 'package:mobile_app/utils/helpers/network_manager.dart';
 import 'package:mobile_app/utils/popups/full_screen_loader.dart';
 import 'package:mobile_app/utils/constants/image_strings.dart';
@@ -74,7 +75,9 @@ class SignupController extends GetxController {
       TFullScreenLoader.stopLoading();
 
       // Show Success Message
-      TLoaders.successSnackBar(title: 'Congratulations' message: 'Your account has been created! Verify email to continue');
+      TLoaders.successSnackBar(
+          title: 'Congratulations',
+          message: 'Your account has been created! Verify email to continue');
 
       // Move to Verify Email Screen
       Get.to(() => const VerifyEmailScreen());
