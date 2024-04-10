@@ -60,6 +60,16 @@ TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
 Future<void> googleSignIn() async {
   try{
       TFullScreenLoader.openLoadingDialog('Logging you in..', TImages.docerAnimation);
+
+      //check internet
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
+
+      //google authentication
+      final userCredentials = await AuthenticationRepository.instance.signInWithGoogle();
   }catch (e){
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
   }
