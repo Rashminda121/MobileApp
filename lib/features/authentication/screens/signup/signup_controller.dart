@@ -70,7 +70,12 @@ class SignupController extends GetxController {
       final userRepository = Get.put(UserRepository());
       await userRepository.saveUserRecord(newUser);
 
+      //Remove Loader
+      TFullScreenLoader.stopLoading();
+
       // Show Success Message
+      TLoaders.successSnackBar(title: 'Congratulations' message: 'Your account has been created! Verify email to continue');
+
       // Move to Verify Email Screen
     } catch (e) {
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
