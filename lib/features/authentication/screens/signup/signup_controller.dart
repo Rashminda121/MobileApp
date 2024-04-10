@@ -62,14 +62,16 @@ class SignupController extends GetxController {
               email.text.trim(), password.text.trim());
 
       // Save Authenticated user data in the Firebase Firestore
-      final newUser = UserModel(
+    final newUser = UserModel(
         id: userCredential.user!.uid,
         firstName: firstName.text.trim(),
         lastName: lastName.text.trim(),
         email: email.text.trim(),
+        username: username.text.trim(), // Set the username field here
         phoneNumber: phoneNumber.text.trim(),
         profilePicture: '',
       );
+
 
       final userRepository = Get.put(UserRepository());
       await userRepository.saveUserRecord(newUser);
@@ -83,7 +85,7 @@ class SignupController extends GetxController {
           message: 'Your account has been created! Verify email to continue');
 
       // Move to Verify Email Screen
-      Get.to(() => const VerifyEmailScreen());
+      Get.to(() => VerifyEmailScreen(email: email.text.trim()));
     } catch (e) {
       //Remove Loader
       TFullScreenLoader.stopLoading();
