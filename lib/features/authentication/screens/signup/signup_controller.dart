@@ -42,6 +42,14 @@ class SignupController extends GetxController {
       }
 
       // Privacy Policy Check
+      if (!privacyPolicy.value) {
+        TLoaders.warningSnackBar(
+          title: 'accept Privacy Policy',
+          message:
+              'In order to create  account, you must have to read and accept the privacy policy & tterms of use.',
+        );
+        return;
+      }
 
       // Register user in the Firebase Authentication & Save user data in the Firebase
 
