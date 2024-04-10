@@ -1,10 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:mobile_app/data/repositories.authentication/user/user_repository.dart';
 import 'package:mobile_app/utils/models/user_model.dart';
 import 'package:mobile_app/utils/popups/loaders.dart';
 
 class UserController extends GetxController {
   static UserController get instance => Get.find();
+
+  final userRepository = Get.put(UserRepository());
 
   Future<void> saveUserRecord(UserCredential? userCredentials) async {
     try{
@@ -21,6 +24,8 @@ class UserController extends GetxController {
           username: username,
           phoneNumber: userCredentials.user!.phoneNumber?? '', 
           profilePicture: userCredentials.user!.photoURL?? '', );
+
+          await userRepository.saveUserRecord(user);
       }
 
     }catch (e){
