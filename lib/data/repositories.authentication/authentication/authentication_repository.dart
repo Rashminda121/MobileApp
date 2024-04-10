@@ -106,6 +106,7 @@ Future<void> sendPasswordResetEmail(String email) async {
 
   Future<void> logout() async {
     try {
+      await GoogleSignIn().signOut();
       await FirebaseAuth.instance.signOut();
       Get.offAll(() => const LoginScreen());
     } on FirebaseAuthException catch (e) {
@@ -125,9 +126,13 @@ Future<void> sendPasswordResetEmail(String email) async {
 Future<UserCredential?> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
+
       final GoogleSignInAuthentication?googleAuth = await userAccount?.authentication;
+
       final credentials = GoogleAuthProvider.credential(accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
+
       return await _auth.signInWithCredential(credentials);
+
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
