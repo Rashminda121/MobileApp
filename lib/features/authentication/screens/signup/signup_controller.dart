@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_app/data/repositories.authentication/authentication_repository.dart';
 import 'package:mobile_app/utils/helpers/network_manager.dart';
 import 'package:mobile_app/utils/popups/full_screen_loader.dart';
 import 'package:mobile_app/utils/constants/image_strings.dart';
@@ -52,8 +53,19 @@ class SignupController extends GetxController {
       }
 
       // Register user in the Firebase Authentication & Save user data in the Firebase
+      final userCredential = await AuthenticationRepository.instance
+          .registerWithEmailAndPassword(
+              email.text.trim(), password.text.trim());
 
       // Save Authenticated user data in the Firebase Firestore
+      final newUser = UserModel(
+        id: userCredential.user!.vid,
+        firstName: firstName.text.trim(),
+        lastName: lastName.text.trim(),
+        email: email.text.trim(),
+        phoneNumber: phoneNumber.text.trim(),
+        profilePicture: '',
+      );
 
       // Show Success Message
       // Move to Verify Email Screen
