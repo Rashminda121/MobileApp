@@ -6,9 +6,8 @@ import 'package:mobile_app/features/authentication/screens/login/login.dart';
 import 'package:mobile_app/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart'; // Add this line to import PlatformException
 
+import 'package:flutter/services.dart'; // Add this line to import PlatformException
 
 
 class AuthenticationRepository extends GetxController {
@@ -56,4 +55,3 @@ class AuthenticationRepository extends GetxController {
     }
 }
   /// [EmailAuthentication] - REGISTER
-}
