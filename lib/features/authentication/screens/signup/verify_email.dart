@@ -11,10 +11,12 @@ import "../../../../utils/helpers/helper_functions.dart";
 import "../login/login.dart";
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+  const VerifyEmailScreen({super.key, this.email});
+  final String? email;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(const VerifyEmailScreen());
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -45,7 +47,7 @@ class VerifyEmailScreen extends StatelessWidget {
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
               Text(
-                'ecommerce@gmail.com',
+                email ?? '',
                 style: Theme.of(context).textTheme.labelLarge,
                 textAlign: TextAlign.center,
               ),
