@@ -37,7 +37,7 @@ class SignupController extends GetxController {
       // Form Validation
       if (!signupFormKey.currentState!.validate()) {
         //Remove Loader
-        TFullScreenLoader
+        TFullScreenLoader.stopLoading();
         return;
       }
 
