@@ -83,7 +83,7 @@ class TLoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: ()=>Get.to(()=>const NavigationMenu()),
+                onPressed: ()=>controller.emailAndPasswordSignIn(),
                 child: const Text(TTexts.signIn),
               ),
             ),
