@@ -7,7 +7,9 @@ import 'package:mobile_app/features/authentication/screens/onboarding/onboarding
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart'; // Add this line to import PlatformException
+import 'package:flutter/services.dart';
+import 'package:mobile_app/features/authentication/screens/signup/verify_email.dart';
+import 'package:mobile_app/navigation_menu.dart'; // Add this line to import PlatformException
 
 
 class AuthenticationRepository extends GetxController {
@@ -21,22 +23,28 @@ class AuthenticationRepository extends GetxController {
   @override
   void onReady() {
     FlutterNativeSplash.remove();
-    screenRedirect();
+    screenRedirect(_auth.currentUser);
   }
 
   /// Function to Show Relevant Screen
-  screenRedirect() async {
-
-    // if(kDebugMode){
-    //   print('================ Debug Mode ================ GET STORAGE =============');
-    //   print(deviceStorage.read('IsFirstTime'));
-    // }
-    /// Local Storage
+  screenRedirect(User? user) async {
+    if (user != null){
+        if(user.emailVerified){
+          Get.offAll(() => const NavigationMenu());
+        } else{
+          Get.offAll(()=> VerifyEmailScreen(email:_auth.currentUser?.email));
+        }
+    }else{
+        /// Local Storage
     deviceStorage.writeIfNull('IsFirstTime', true);
     deviceStorage.read('IsFirstTime') != true
         ? Get.offAll(() => const LoginScreen())
         : Get.offAll(() => const OnboardingScreen());
   }
+    }
+
+    
+    
 
   /// [EmailAuthentication] SignIn
   Future<UserCredential> registerWithEmailAndPassword(String email, String password) async {
