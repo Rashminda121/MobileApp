@@ -56,4 +56,19 @@ class AuthenticationRepository extends GetxController {
     }
 }
   /// [EmailAuthentication] - REGISTER
+  Future<void> sendEmailVeridication() async {
+    try {
+      await _auth.currentUser?.sendEmailVerification();
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFiireException(e.code).message;
+    } on FormmatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'something went wrong. Please try again';
+    }
+  }
 }
