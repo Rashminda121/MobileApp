@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:mobile_app/data/repositories.authentication/firebase_exception.dart';
 import 'package:mobile_app/features/authentication/screens/login/login.dart';
