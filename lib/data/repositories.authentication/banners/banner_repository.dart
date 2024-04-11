@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:mobile_app/data/repositories.authentication/firebase_exception.dart';
 
 import '../../../features/shop/models/banner_model.dart';
 import '../categories/platformException.dart';
@@ -20,8 +23,7 @@ class BannerRepository extends GetxController {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
       throw const TFormatException();
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
+   
     } catch (e) {
       throw 'Something went wrong while fetching Banners.';
     }
