@@ -6,7 +6,7 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 import '../../../../data/repositories.authentication/product/product_repository.dart';
 import '../../../../utils/popups/loaders.dart';
-import '../../models/produt_model.dart';
+import '../../models/product_model.dart';
 
 class AllProductsController extends GetxController {
   static AllProductsController get instance => Get.find();
