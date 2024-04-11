@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:mobile_app/common/widgets/loaders/shimmer.dart';
 import 'package:mobile_app/features/personalization/controllers/user_controller.dart';
 
 import '../../../../../common/widgets/appbar/appbar.dart';
@@ -27,7 +28,7 @@ class THomeAppBar extends StatelessWidget {
                   .apply(color: TColors.grey)),
           Obx(() {
             if (controller.profileLoading.value) {
-              return const CircularProgressIndicator();
+              return const TShimmerEffect(width: 80, height: 15);
             } else {
               return Text(controller.user.value.fullName,
                   style: Theme.of(context)

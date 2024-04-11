@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mobile_app/common/widgets/loaders/shimmer.dart';
 import 'package:mobile_app/features/personalization/controllers/user_controller.dart';
 import 'package:mobile_app/features/personalization/screens/profile/widgets/profile_menu.dart';
 
@@ -29,13 +31,22 @@ class ProfileScreen extends StatelessWidget {
               width: double.infinity,
               child: Column(
                 children: [
-                  const TCircularImage(
-                    image: TImages.user,
-                    width: 80,
-                    height: 80,
-                  ),
+                  Obx(() {
+                    final networkImage = controller.user.value.profilePicture;
+                    final image =
+                        networkImage.isNotEmpty ? networkImage : TImages.user;
+
+                    return controller.imageUploading.value
+                        ? const TShimmerEffect(
+                            width: 80, height: 80, radius: 80)
+                        : TCircularImage(
+                            image: image,
+                            width: 80,
+                            height: 80,
+                            isNetworkImage: networkImage.isNotEmpty);
+                  }),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () => controller.uploadUserProfilePicture(),
                       child: const Text('Change Profile Picture')),
                 ],
               ),
