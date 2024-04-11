@@ -5,7 +5,7 @@ import 'package:mobile_app/features/shop/controllers/banner_controller.dart';
 
 import '../../../../../common/widgets/custom_shapes/container/circular_container.dart';
 import '../../../../../common/widgets/images/t_rounded_image.dart';
-import '../../../../../common/widgets/shimmers/shimmer.dart';
+import '../../../../../common/widgets/shimmers/shimmers.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../controllers/home_controller.dart';

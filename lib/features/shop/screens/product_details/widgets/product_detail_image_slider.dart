@@ -13,7 +13,7 @@ import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
-import '../../../controllers/product/images_ontroller.dart';
+import '../../../controllers/product/images_controller.dart';
 
 class TProductImageSlider extends StatelessWidget {
   const TProductImageSlider({
