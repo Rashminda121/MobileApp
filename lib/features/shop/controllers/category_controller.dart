@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+
 import 'package:mobile_app/utils/popups/loaders.dart';
 
 import '../../../data/repositories.authentication/categories/category_repository.dart';
