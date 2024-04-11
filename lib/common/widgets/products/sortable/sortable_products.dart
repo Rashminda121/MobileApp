@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mobile_app/features/shop/controllers/product/all_product_controller.dart';
-import 'package:mobile_app/features/shop/models/produt_model.dart';
+import 'package:mobile_app/features/shop/models/product_model.dart';
 
 import '../../../../utils/constants/sizes.dart';
 import '../../layouts/grid_layout.dart';

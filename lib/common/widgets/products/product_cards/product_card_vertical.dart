@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mobile_app/features/shop/controllers/product_controller.dart';
+import 'package:mobile_app/utils/constants/enums.dart';
 
-import '../../../../features/shop/models/produt_model.dart';
+import '../../../../features/shop/models/product_model.dart';
 import '../../../../features/shop/screens/product_details/product_detail.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
