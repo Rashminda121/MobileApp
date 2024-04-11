@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mobile_app/features/shop/models/produt_model.dart';
 import 'package:mobile_app/features/shop/screens/product_details/widgets/bottom_add_to_cart.dart';
 import 'package:mobile_app/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:mobile_app/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
@@ -15,7 +16,9 @@ import '../../../../utils/helpers/helper_functions.dart';
 import '../product_reviews/product_reviews.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+  const ProductDetailScreen({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
