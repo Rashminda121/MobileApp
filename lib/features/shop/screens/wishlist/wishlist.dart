@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -7,11 +6,12 @@ import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/icons/t_circular_icon.dart';
 import '../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
+import '../../../../features/shop/screens/home/home.dart';
+import '../../../../features/shop/models/product_model.dart'; // Import ProductModel
 import '../../../../utils/constants/sizes.dart';
-import '../home/home.dart';
 
 class FavouriteScreen extends StatelessWidget {
-  const FavouriteScreen({super.key});
+  const FavouriteScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +22,10 @@ class FavouriteScreen extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         actions: [
-          TCircularIcon(icon: Iconsax.add,onPressed: ()=>Get.to(const HomeScreen())),
-
+          TCircularIcon(
+            icon: Iconsax.add,
+            onPressed: () => Get.to(const HomeScreen()),
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -31,7 +33,12 @@ class FavouriteScreen extends StatelessWidget {
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
-              TGridLayout(itemCount: 6, itemBuilder: (_,index)=> const TProductCardVertical() ),
+              TGridLayout(
+                itemCount: 6,
+                itemBuilder: (_, index) => TProductCardVertical(
+                  product: ProductModel.empty(), // Pass ProductModel object here
+                ),
+              ),
             ],
           ),
         ),

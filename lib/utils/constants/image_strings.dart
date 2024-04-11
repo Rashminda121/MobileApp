@@ -22,7 +22,8 @@ class TImages {
   static const String verify = "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
   static const String deliverEmail = "assets/images/animations/sammy-line-man-receives-a-mail.png";
   static const String paymentSuccess = "assets/images/animations/icons8-correct.gif";
-
+  static const String docerAnimation = "assets/images/animations/Animation - 1712748984220.json";
+static const String success = "assets/images/animations/Animation - 1712748791337.json";
 
   //Category Icons
   static const String shoeIcon = "assets/icons/categories/sport-shoe.png";
@@ -35,6 +36,7 @@ class TImages {
   //product images
   static const String product1= "assets/images/products/sport-shoe.png";
   static const String product2= "assets/images/products/shoe.jpg";
+
 
 
   //user images

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/features/shop/models/brand_model.dart';
 
 import '../../../../../common/styles/rounded_container.dart';
 import '../../../../../common/widgets/images/t_circular_image.dart';
@@ -12,8 +13,10 @@ import '../../../../../utils/helpers/helper_functions.dart';
 class TBrandCard extends StatelessWidget {
   const TBrandCard({
     super.key,this.showBorder=true, this.onTap,
+    required this.brand,
   });
   final bool showBorder;
+  final BrandModel brand;
   final void Function()?onTap;
   @override
   Widget build(BuildContext context) {
@@ -30,9 +33,11 @@ class TBrandCard extends StatelessWidget {
             Flexible(
               child: TCircularImage (
                 isNetworkImage: false,
-                image: TImages.product1,
+                image: brand.image,
                 backgroundColor: Colors.transparent,
-                overlayColor: THelperFunctions.isDarkMode (context) ? TColors.white: TColors.black,
+               overlayColor: THelperFunctions.isDarkMode(context)
+                    ? TColors.white
+                    : TColors.black,
               ),
             ),
             const SizedBox(width: TSizes.spaceBtwItems/2),
@@ -44,13 +49,12 @@ class TBrandCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
 
                 children: [
-                  const TBrandTitleWithVerifiedIcon(title: 'Nike',brandTextSize: TextSizes.large),
+                  TBrandTitleWithVerifiedIcon(title: brand.name, brandTextSize: TextSizes.large),
 
                   Text(
-                    '256 products sample text',
+                    '${brand.productsCount ?? 0} products',
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.labelMedium,
-                  ),
+                    style: Theme.of(context).textTheme.labelMedium,),
                 ],
               ),
             )

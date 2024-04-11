@@ -2,7 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mobile_app/features/shop/controllers/product_controller.dart';
+import 'package:mobile_app/utils/constants/enums.dart';
 
+import '../../../../features/shop/models/product_model.dart';
 import '../../../../features/shop/screens/product_details/product_detail.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
@@ -23,13 +26,17 @@ class TProductCardVertical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final controller ProductController.instance;
+
+    final controller =ProductController.instance;
+
     final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     final dark = THelperFunctions.isDarkMode(context);
 
     ///container with side padding
     return GestureDetector(
-      onTap: () =>Get.to(()=> const ProductDetailScreen()),
+      onTap: () =>Get.to(()=>  ProductDetailScreen(product: product)),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -43,16 +50,28 @@ class TProductCardVertical extends StatelessWidget {
             /// Thumbnail, Wishlist Button, Discount Tag
             TRoundedContainer(
               height: 180,
+              width: 180,
               padding: const EdgeInsets.all(TSizes.xs),
               backgroundColor: dark ? TColors.dark : TColors.light,
               child: Stack(
                 children: [
                   ///Thumbnail Image
+
                   const TRoundedImage(
                     imageUrl: product.thambnail,
                     applyImageRadius: true,
                     width: 180,
                     height: 180,
+
+                  Center(
+                    child: TRoundedImage(
+                      imageUrl: product.thumbnail,
+                      applyImageRadius: true,
+                      width: 180,
+                      height: 180,
+                      isNetworkImage: true,
+                    ),
+
                   ),
 
                   ///sale tag
@@ -85,11 +104,17 @@ class TProductCardVertical extends StatelessWidget {
             const SizedBox(height: TSizes.spaceBtwItems / 2),
 
             ///details
+
             const Padding(
               padding: const EdgeInsets.only(left: TSizes.sm),
               child: SizedBox(
                 width: double.infinity,
                 child: Column(
+
+            Padding(
+              padding: EdgeInsets.only(left: TSizes.sm),
+              child: Column(
+
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TProductTitleText(
@@ -107,6 +132,30 @@ class TProductCardVertical extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
+
+                /// Price
+                Flexible(
+                  child: Column(
+                    children: [
+                      if (product.productType == ProductType.single.toString() && product.salePrice > 0)
+                        Padding(
+                          padding: const EdgeInsets.only(left: TSizes.sm),
+                          child: Text(
+                            product.price.toString(),
+                            style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),
+                          ), // Text
+                        ), // Padding
+
+
+                      Padding(
+                        padding: const EdgeInsets.only(left: TSizes.sm),
+                        child: TProductPriceText(price: controller.getProductPrice(product)),
+                      ),
+                    ],
+                  ),
+                ),
+
 
                 /// Price
                  Flexible(child: TProductPriceText(price: '255.0'))
