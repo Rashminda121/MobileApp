@@ -2,6 +2,7 @@ import 'dart:js_util';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_app/features/shop/controllers/product/cart_controller.dart';
 
 import '../../../../../common/widgets/products/cart/add_remove_button.dart';
 import '../../../../../common/widgets/products/cart/cart_item.dart';
@@ -12,6 +13,7 @@ class TCartItems extends StatelessWidget {
   const TCartItems({
     super.key,
     this.showAddRemoveButtons = true,
+    required cartItem,
   });
   final bool showAddRemoveButtons;
 
@@ -30,7 +32,7 @@ class TCartItems extends StatelessWidget {
           return Column(
             children: [
               ///cart item
-              TCartItem(cartItem: item),
+              TCartItems(cartItem: item),
               if (showAddRemoveButtons)
                 const SizedBox(
                   height: TSizes.spaceBtwItems,
