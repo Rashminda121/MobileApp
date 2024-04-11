@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:mobile_app/common/widgets/firebase/TFirebaseStorage.dart';
 import 'package:mobile_app/data/repositories.authentication/categories/platformException.dart';
+import 'package:mobile_app/data/repositories.authentication/firebase_exception.dart';
 
 import '../../../features/shop/models/category_model.dart';
 
@@ -19,8 +23,7 @@ class CategoryRepository extends GetxController {
       return list;
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
-    } on TPlatformException catch (e) {
-      throw TPlatformException(e.code).message;
+   
     } catch (e) {
     }
     throw 'Something went wrong. Please try again';
@@ -46,11 +49,7 @@ class CategoryRepository extends GetxController {
     } on PlatformException catch (e, stackTrace) {
       print('PlatformException: $e');
       print('stackTrace: $stackTrace');
-      throw TPlatformException(e.code).message;
-    } catch (e, stackTrace) {
-      print('Exception: $e');
-      print('stackTrace: $stackTrace');
-      // Replace this with your own error handling
+      
       rethrow;
     }
   }
