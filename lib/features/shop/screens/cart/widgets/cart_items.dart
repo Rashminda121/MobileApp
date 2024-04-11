@@ -2,6 +2,7 @@ import 'dart:js_util';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_app/features/shop/controllers/product/cart_controller.dart';
 
 import '../../../../../common/widgets/products/cart/add_remove_button.dart';
 import '../../../../../common/widgets/products/cart/cart_item.dart';
@@ -30,7 +31,7 @@ class TCartItems extends StatelessWidget {
           return Column(
             children: [
               ///cart item
-               TCartItem(cartItem: item),
+              TCartItem(cartItem: item),
               if (showAddRemoveButtons)
                 const SizedBox(
                   height: TSizes.spaceBtwItems,
@@ -39,7 +40,7 @@ class TCartItems extends StatelessWidget {
               if (showAddRemoveButtons)
 
                 ///add remove button with total price
-               Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
@@ -48,16 +49,18 @@ class TCartItems extends StatelessWidget {
                         SizedBox(width: 70),
 
                         ///add remove buttons
-                        TProductQuantityWithAddRemoveButton(quantity: item.quantity , 
-                        add: ()=> cartController.addOneToCart(item),
-                        remove : () => cartController.removeOneFromCart(item),),
+                        TProductQuantityWithAddRemoveButton(
+                          quantity: item.quantity,
+                          add: () => cartController.addOneToCart(item),
+                          remove: () => cartController.removeOneFromCart(item),
+                        ),
                       ],
                     ),
 
                     ///total price
 
-                    TProductPriceText(price: (item.price * item.quantity).toStringAsFixed(1)),
-
+                    TProductPriceText(
+                        price: (item.price * item.quantity).toStringAsFixed(1)),
                   ],
                 )
             ],
