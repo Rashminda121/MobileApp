@@ -5,7 +5,7 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 import '../../models/product_variation_model.dart';
 import '../../models/product_model.dart';
-import 'images_ontroller.dart';
+import 'images_controller.dart';
 
 class VariationController extends GetxController {
   static VariationController get instance => Get.find();
