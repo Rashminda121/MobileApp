@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mobile_app/features/personalization/controllers/user_controller.dart';
 import 'package:mobile_app/features/personalization/screens/profile/widgets/profile_menu.dart';
 
 import '../../../../common/widgets/appbar/appbar.dart';
@@ -14,6 +14,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       appBar: const TAppBar(title: Text('Profile'), showBackArrow: true),
 
@@ -50,9 +51,14 @@ class ProfileScreen extends StatelessWidget {
                 title: 'Profile Information', showActionButton: false),
             const SizedBox(height: TSizes.spaceBtwItems),
 
-            TProfileMenu(title: 'Name', value: 'User Name', onPressed: () {}),
             TProfileMenu(
-                title: 'Username', value: 'test user', onPressed: () {}),
+                title: 'Name',
+                value: controller.user.value.fullName,
+                onPressed: () {}),
+            TProfileMenu(
+                title: 'Username',
+                value: controller.user.value.username.toString(),
+                onPressed: () {}),
 
             const SizedBox(height: TSizes.spaceBtwItems),
             const Divider(),
@@ -65,13 +71,17 @@ class ProfileScreen extends StatelessWidget {
 
             TProfileMenu(
                 title: 'User ID',
-                value: '45689',
+                value: controller.user.value.id,
                 icon: Iconsax.copy,
                 onPressed: () {}),
             TProfileMenu(
-                title: 'E-mail', value: 'user@email', onPressed: () {}),
+                title: 'E-mail',
+                value: controller.user.value.email,
+                onPressed: () {}),
             TProfileMenu(
-                title: 'Phone Number', value: '+94712345678', onPressed: () {}),
+                title: 'Phone Number',
+                value: controller.user.value.phoneNumber,
+                onPressed: () {}),
             TProfileMenu(title: 'Gender', value: 'Male', onPressed: () {}),
             TProfileMenu(
                 title: 'Date of Birth',
