@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -12,12 +11,14 @@ import 'package:flutter/services.dart';
 import 'package:mobile_app/features/authentication/screens/signup/verify_email.dart';
 import 'package:mobile_app/navigation_menu.dart'; // Add this line to import PlatformException
 
-
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
 
   final deviceStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
+
+  // Get Authenticated User
+  User? get authUser => _auth.currentUser;
 
   @override
   void onReady() {
@@ -39,10 +40,12 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-///login
-Future<UserCredential> loginWithEmailAndPassword(String email, String password) async {
+  ///login
+  Future<UserCredential> loginWithEmailAndPassword(
+      String email, String password) async {
     try {
-      return await _auth.signInWithEmailAndPassword(email: email, password: password);
+      return await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -55,7 +58,8 @@ Future<UserCredential> loginWithEmailAndPassword(String email, String password) 
       throw 'Something went wrong. Please try again';
     }
   }
-Future<void> sendPasswordResetEmail(String email) async {
+
+  Future<void> sendPasswordResetEmail(String email) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
@@ -71,10 +75,12 @@ Future<void> sendPasswordResetEmail(String email) async {
     }
   }
 
-///registerWithEmailAndPassword
-  Future<UserCredential> registerWithEmailAndPassword(String email, String password) async {
+  ///registerWithEmailAndPassword
+  Future<UserCredential> registerWithEmailAndPassword(
+      String email, String password) async {
     try {
-      return await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      return await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
@@ -123,16 +129,17 @@ Future<void> sendPasswordResetEmail(String email) async {
   }
 
   ///google authentication
-Future<UserCredential?> signInWithGoogle() async {
+  Future<UserCredential?> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
 
-      final GoogleSignInAuthentication?googleAuth = await userAccount?.authentication;
+      final GoogleSignInAuthentication? googleAuth =
+          await userAccount?.authentication;
 
-      final credentials = GoogleAuthProvider.credential(accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
+      final credentials = GoogleAuthProvider.credential(
+          accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
 
       return await _auth.signInWithCredential(credentials);
-
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
