@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/colors.dart';
@@ -14,18 +13,19 @@ class TCartItem extends StatelessWidget {
     super.key,
   });
 
-
+  final CartItemModel = cartItem;
 
   @override
   Widget build(BuildContext context) {
-    final dark =THelperFunctions.isDarkMode(context);
+    final dark = THelperFunctions.isDarkMode(context);
     return Row(
       children: [
         ///Image
         TRoundedImage(
-          imageUrl: TImages.product1,
+          imageUrl: cartItem.image ?? '',
           width: 60,
           height: 60,
+          isNetworkImage: true,
           padding: const EdgeInsets.all(TSizes.sm),
           backgroundColor: dark ? TColors.darkerGrey : TColors.light,
         ),
@@ -38,24 +38,29 @@ class TCartItem extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TBrandTitleWithVerifiedIcon(title: 'Nike'),
-              const Flexible(child: TProductTitleText(title: 'Black Sports Shoes', maxLines: 1,)),
+              TBrandTitleWithVerifiedIcon(title: cartItem.brandName ??''),
+              Flexible(child: TProductTitleText(title: cartItem.title, maxLines: 1)),
+              
+
               ///Attributes
-
               Text.rich(
-                  TextSpan(
-                    children: [
-                      TextSpan(text: 'Color', style: Theme.of(context).textTheme.bodySmall),
-                      TextSpan(text: 'Green ', style: Theme. of (context).textTheme.bodyLarge),
-                      TextSpan (text: 'Size', style: Theme. of (context).textTheme.bodySmall),
-                      TextSpan (text: 'UK 08', style: Theme. of (context).textTheme.bodyLarge),
-                    ],
-                  ))
-
+                TextSpan(
+                children: (cartItem.selectedVariation ?? {})
+                .entries
+                .map(
+                  (e) => TextSpan(
+                    children:[
+                      TextSpan(text: '${e.key}: ', style: Theme.of(context).textTheme.bodySmall),
+                      TextSpan(text: '${e.value}', style: Theme.of(context).textTheme.bodyLarge),
+                ],
+                ),
+                )
+                toList(),
+              ),
+              )
             ],
           ),
         )
-
       ],
     );
   }

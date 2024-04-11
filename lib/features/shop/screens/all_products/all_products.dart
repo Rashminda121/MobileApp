@@ -1,5 +1,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -20,8 +21,38 @@ class AllProducts extends StatelessWidget {
   final Query? query;
   final Future<List<ProductModel>>? futureMethod;
 
+  final String title;
+  final Query? query;
+  final Future<List<ProductionModel>>? futureMethod;
+
   @override
   Widget build(BuildContext context) {
+
+    final controller = Get.put(AllProductsController());
+
+    return Scaffold(
+      appBar: TAppBar(title: Text(title), showBackArrow: true),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          child: FutureBuilder(
+            future: futureMethod ?? controller.fetchProducts(query),
+            builder: (context, snapshot) {
+              //handle prder, no record or error message
+              const loader = THorizontalProductShimmer();
+              final widget = TCloudeHelperFunctions.checkMultiRecordState(
+                  snapshot: snapshot, loader: loader);
+              if (widget != null) return widget;
+
+              //record found
+              final products = snapshot.data!;
+
+              return TSortableProducts(
+                products: products,
+              );
+            },
+          ),
+
 
     final controller =Get.put(AllProductsController());
 
@@ -45,10 +76,12 @@ class AllProducts extends StatelessWidget {
 
                 return TSortableProducts(products: products);
                 },
+
         ),
       ),
     ),
     );
   }
 }
+
 

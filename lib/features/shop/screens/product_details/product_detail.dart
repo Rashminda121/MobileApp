@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -20,11 +19,13 @@ class ProductDetailScreen extends StatelessWidget {
 
   final ProductModel product;
 
+  final ProductModel = product;
+
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
-      bottomNavigationBar: const TBottomAddToCart(),
+      bottomNavigationBar: TBottomAddToCart(product: product),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -87,7 +88,8 @@ class ProductDetailScreen extends StatelessWidget {
                           title: 'Reviews (199)', showActionButton: false),
                       IconButton(
                           icon: const Icon(Iconsax.arrow_right_3, size: 18),
-                          onPressed: () => Get.to(()=>const ProductReviewsScreen())),
+                          onPressed: () =>
+                              Get.to(() => const ProductReviewsScreen())),
                     ],
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections),

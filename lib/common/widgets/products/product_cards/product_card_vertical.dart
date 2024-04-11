@@ -26,7 +26,11 @@ class TProductCardVertical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final controller ProductController.instance;
+
     final controller =ProductController.instance;
+
     final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     final dark = THelperFunctions.isDarkMode(context);
 
@@ -52,6 +56,13 @@ class TProductCardVertical extends StatelessWidget {
               child: Stack(
                 children: [
                   ///Thumbnail Image
+
+                  const TRoundedImage(
+                    imageUrl: product.thambnail,
+                    applyImageRadius: true,
+                    width: 180,
+                    height: 180,
+
                   Center(
                     child: TRoundedImage(
                       imageUrl: product.thumbnail,
@@ -60,6 +71,7 @@ class TProductCardVertical extends StatelessWidget {
                       height: 180,
                       isNetworkImage: true,
                     ),
+
                   ),
 
                   ///sale tag
@@ -81,13 +93,10 @@ class TProductCardVertical extends StatelessWidget {
                   ),
 
                   ///favourite icon button
-                  const Positioned(
+                   Positioned(
                     top: 0,
                     right: 0,
-                    child: TCircularIcon(
-                      icon: Iconsax.heart5,
-                      color: Colors.red,
-                    ),
+                    child: TFavouriteIcon( productId: product.id),
                   ),
                 ],
               ),
@@ -95,9 +104,17 @@ class TProductCardVertical extends StatelessWidget {
             const SizedBox(height: TSizes.spaceBtwItems / 2),
 
             ///details
+
+            const Padding(
+              padding: const EdgeInsets.only(left: TSizes.sm),
+              child: SizedBox(
+                width: double.infinity,
+                child: Column(
+
             Padding(
               padding: EdgeInsets.only(left: TSizes.sm),
               child: Column(
+
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TProductTitleText(
@@ -105,6 +122,7 @@ class TProductCardVertical extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBtwItems / 2),
                   TBrandTitleWithVerifiedIcon(title: product.brand!.name),
                 ],
+                ),
               ),
             ),
 
@@ -114,6 +132,8 @@ class TProductCardVertical extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
+
                 /// Price
                 Flexible(
                   child: Column(
@@ -136,6 +156,9 @@ class TProductCardVertical extends StatelessWidget {
                   ),
                 ),
 
+
+                /// Price
+                 Flexible(child: TProductPriceText(price: '255.0'))
                 ///add to cart button
                 Container(
                   decoration: const BoxDecoration(
