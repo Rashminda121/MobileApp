@@ -29,7 +29,10 @@ class TBillingAmountSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Shipping fee', style: Theme.of(context).textTheme.bodyMedium),
-            Text('\$${TPricingCalculator.calculateShippingCost(subTotal, 'US')}', style: Theme.of(context).textTheme.labelLarge),
+            Text(
+                '\$${TPricingCalculator.calculateShippingCost(subTotal, 'US')}',
+                style: Theme.of(context).textTheme.labelLarge),
+          ],
         ),
         const SizedBox(height: TSizes.spaceBtwItems / 2),
 
