@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/features/shop/controllers/product/cart_controller.dart';
+import 'package:mobile_app/utils/helpers/pricing_calculater.dart';
 
 import '../../../../../utils/constants/sizes.dart';
 
@@ -28,7 +29,7 @@ class TBillingAmountSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Shipping fee', style: Theme.of(context).textTheme.bodyMedium),
-            Text('\$&{TPricingCalculator.calculateShippingCost(subTotal, 'US')}', style: Theme.of(context).textTheme.labelLarge),
+            Text('\$${TPricingCalculator.calculateShippingCost(subTotal, 'US')}', style: Theme.of(context).textTheme.labelLarge),
         ),
         const SizedBox(height: TSizes.spaceBtwItems / 2),
 
