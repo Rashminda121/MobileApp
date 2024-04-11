@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mobile_app/common/widgets/products/favourite_icon/favourite_icon.dart';
 
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
@@ -15,7 +16,7 @@ class TProductImageSlider extends StatelessWidget {
     super.key,
   });
 
-
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +31,8 @@ class TProductImageSlider extends StatelessWidget {
               height: 400,
               child: Padding(
                 padding: EdgeInsets.all(TSizes.productImageRadius * 2),
-                child: Center(
-                    child: Image(image: AssetImage(TImages.product1))),
+                child:
+                    Center(child: Image(image: AssetImage(TImages.product1))),
               ),
             ),
 
@@ -49,32 +50,22 @@ class TProductImageSlider extends StatelessWidget {
                   physics: const AlwaysScrollableScrollPhysics(),
                   itemBuilder: (_, index) => TRoundedImage(
                     width: 80,
-                    backgroundColor:
-                    dark ? TColors.dark : TColors.white,
+                    backgroundColor: dark ? TColors.dark : TColors.white,
                     border: Border.all(color: TColors.primary),
                     padding: const EdgeInsets.all(TSizes.sm),
                     imageUrl: TImages.product1,
                   ),
                   separatorBuilder: (_, __) =>
-                  const SizedBox(width: TSizes.spaceBtwItems),
+                      const SizedBox(width: TSizes.spaceBtwItems),
                 ),
               ),
             ),
 
             ///App Bar Icons
-            const TAppBar(
+            TAppBar(
               showBackArrow: true,
-              actions: [
-                TCircularIcon(
-                  icon: Iconsax.heart5,
-                  color: Colors.red,
-                ),
-              ],
+              actions: [TFavouriteIcon(productId: product.id)],
             ),
-
-
-
-
           ], // TCurvedEdgesWidget
         ),
       ),

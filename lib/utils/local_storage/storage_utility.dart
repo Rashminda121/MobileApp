@@ -1,15 +1,23 @@
 import 'package:get_storage/get_storage.dart';
 
 class TLocalStorage {
-  static final TLocalStorage _instance = TLocalStorage._internal();
-
-  factory TLocalStorage() {
-    return _instance;
-  }
+  late final GetStorage _storage;
+  static TLocalStorage? _instance;
 
   TLocalStorage._internal();
 
-  final _storage = GetStorage();
+  factory TLocalStorage.instance() {
+    _instance ??= TLocalStorage._internal();
+    return _instance!;
+  }
+
+  static Future<void> init(String bucketName) async {
+    await GetStorage.init(bucketName);
+    _instance = TLocalStorage._internal();
+    _instance!._storage = GetStorage(bucketName);
+  }
+
+  late final GetStorage _storage;
 
   // Generic method to save data
   Future<void> saveData<T>(String key, T value) async {
@@ -30,6 +38,4 @@ class TLocalStorage {
   Future<void> clearAll() async {
     await _storage.erase();
   }
-
-
 }

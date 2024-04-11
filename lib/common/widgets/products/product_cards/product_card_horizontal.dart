@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mobile_app/common/widgets/products/favourite_icon/favourite_icon.dart';
 
 import '../../../../features/shop/screens/store/widgets/rounded_container.dart';
 import '../../../../utils/constants/colors.dart';
@@ -59,20 +59,20 @@ class TProductCardHorizontal extends StatelessWidget {
                 ),
 
                 ///Favourite Icon Button
-                const Positioned(
+                Positioned(
                   top: 0,
                   right: 0,
-                  child: TCircularIcon(icon: Iconsax.heart5, color: Colors.red),
+                  child: TFavouriteIcon(productId: product.id),
                 ),
               ],
             ),
           ),
 
           ///details
-           SizedBox(
+          SizedBox(
             width: 172,
             child: Padding(
-              padding: const EdgeInsets.only(top: TSizes.sm,left: TSizes.sm),
+              padding: const EdgeInsets.only(top: TSizes.sm, left: TSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -86,9 +86,7 @@ class TProductCardHorizontal extends StatelessWidget {
                       TBrandTitleWithVerifiedIcon(title: 'Nike'),
                     ],
                   ),
-
                   const Spacer(),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -101,7 +99,8 @@ class TProductCardHorizontal extends StatelessWidget {
                           color: TColors.dark,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(TSizes.cardRadiusMd),
-                            bottomRight: Radius.circular(TSizes.productImageRadius),
+                            bottomRight:
+                                Radius.circular(TSizes.productImageRadius),
                           ),
                         ),
                         child: const SizedBox(
@@ -115,13 +114,8 @@ class TProductCardHorizontal extends StatelessWidget {
                           ),
                         ),
                       ),
-
-
                     ],
                   ),
-
-
-
                 ],
               ),
             ),

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mobile_app/common/widgets/products/favourite_icon/favourite_icon.dart';
 
 import '../../../../features/shop/screens/product_details/product_detail.dart';
 import '../../../../utils/constants/colors.dart';
@@ -70,12 +71,11 @@ class TProductCardVertical extends StatelessWidget {
                   ),
 
                   ///favourite icon button
-                  const Positioned(
+                   Positioned(
                     top: 0,
                     right: 0,
-                    child: TCircularIcon(
-                      icon: Iconsax.heart5,
-                      color: Colors.red,
+                    child: TFavouriteIcon(productId: product.id),
+                     
                     ),
                   ),
                 ],
