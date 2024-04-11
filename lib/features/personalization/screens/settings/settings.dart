@@ -89,7 +89,7 @@ class SettingsScreen extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: OutlinedButton (
-                        onPressed: (){},
+                        onPressed: () => AuthenticationRepository.instance.logout(),
                         child: const Text('Logout'),
                       ),
                     ),
