@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/features/shop/models/produt_model.dart';
+import 'package:mobile_app/features/shop/models/product_model.dart';
 
 import '../../../../../common/widgets/brands/brand_show_case.dart';
 import '../../../../../common/widgets/layouts/grid_layout.dart';

@@ -1,29 +1,29 @@
-
 import 'package:flutter/material.dart';
-
+import 'package:mobile_app/features/shop/models/product_model.dart';
 import '../../../../../common/styles/rounded_container.dart';
 import '../../../../../common/widgets/images/t_circular_image.dart';
 import '../../../../../common/widgets/texts/product_price_text.dart';
 import '../../../../../common/widgets/texts/product_title_text.dart';
 import '../../../../../common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
 import '../../../../../utils/constants/colors.dart';
-import '../../../../../utils/constants/enums.dart';
+import '../../../../../utils/constants/enums.dart'; // Import the enums file
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 import '../../../controllers/product_controller.dart';
-import '../../../models/produt_model.dart';
+import '../../../models/product_model.dart';
 
 class TProductMetaData extends StatelessWidget {
   const TProductMetaData({
-    super.key, required this.product,
-  });
+    Key? key, 
+    required this.product,
+  }) : super(key: key); // Correct super constructor call
 
   final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
-    final controller =ProductController.instance;
+    final controller = ProductController.instance;
     final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     final darkMode = THelperFunctions.isDarkMode(context);
 
@@ -49,13 +49,13 @@ class TProductMetaData extends StatelessWidget {
 
             /// Price
 
-            if(product.productType==productType.single.toString() && product.salePrice>0)
+            if(product.productType == ProductType.single.toString() && product.salePrice>0)
             Text('\$${product.price}',
                 style: Theme.of(context)
                     .textTheme
                     .titleSmall!
                     .apply(decoration: TextDecoration.lineThrough)),
-            if(product.productType==productType.single.toString() && product.salePrice>0) const SizedBox(width: TSizes.spaceBtwItems),
+            if(product.productType==ProductType.single.toString() && product.salePrice>0) const SizedBox(width: TSizes.spaceBtwItems),
             TProductPriceText(price: controller.getProductPrice(product), isLarge: true),
           ],
         ),

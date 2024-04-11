@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -5,7 +6,7 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 import '../../../../data/repositories.authentication/product/product_repository.dart';
 import '../../../../utils/popups/loaders.dart';
-import '../../models/produt_model.dart';
+import '../../models/product_model.dart';
 
 class AllProductsController extends GetxController {
   static AllProductsController get instance => Get.find();
@@ -23,8 +24,9 @@ class AllProductsController extends GetxController {
       return products;
     } catch (e) {
       // Error handling
+    
+     TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }
-    TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     return [];
   }
 

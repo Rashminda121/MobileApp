@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mobile_app/features/shop/models/produt_model.dart';
+import 'package:mobile_app/features/shop/models/product_model.dart';
 import 'package:mobile_app/features/shop/screens/product_details/widgets/bottom_add_to_cart.dart';
 import 'package:mobile_app/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:mobile_app/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
@@ -48,8 +48,8 @@ class ProductDetailScreen extends StatelessWidget {
                   /// -- Attributes
 
 
-                  if (product.productType == ProductType.variable.toString()) TProductAttributes(product: product,),
-                  if (product.productType == ProductType.variable.toString())const SizedBox(height: TSizes.spaceBtwSections),
+                  // if (product.productType == ProductType.variable.toString()) TProductAttributes(product: product,),
+                  // if (product.productType == ProductType.variable.toString())const SizedBox(height: TSizes.spaceBtwSections),
 
                   /// -- Checkout Button
                   SizedBox(

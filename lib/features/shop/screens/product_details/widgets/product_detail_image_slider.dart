@@ -1,8 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mobile_app/features/shop/models/produt_model.dart';
+import 'package:mobile_app/features/shop/models/product_model.dart';
 
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
@@ -44,10 +45,10 @@ final ProductModel product;
                       final image= controller.selectedProductImage.value;
                       return GestureDetector(
                         onTap: ()=>controller.showEnlargedImage(image),
-                          child:CachedNetworrkImage(
+                          child:CachedNetworkImage(
                           imageUrl:image,
                           progressIndicatorBuilder:(_,__,downloadProgress)=>
-                          CircularProgressIndicator(value:downloadProgress.progresss,color:TColors.primary)
+                          CircularProgressIndicator(value:downloadProgress.progress,color:TColors.primary)
                       ));
                     }
               )),

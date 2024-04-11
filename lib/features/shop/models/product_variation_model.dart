@@ -16,7 +16,7 @@ class ProductVariationModel {
     this.price = 0.0,
     this.salePrice = 0.0,
     this.stock = 0,
-    required this.attributeValues;
+    required this.attributeValues,
   });
 
   static ProductVariationModel empty() =>

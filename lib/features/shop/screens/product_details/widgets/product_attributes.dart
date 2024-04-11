@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile_app/features/shop/models/produt_model.dart';
+import 'package:mobile_app/features/shop/models/product_model.dart';
 
 import '../../../../../common/styles/rounded_container.dart';
 import '../../../../../common/widgets/chips/choice_chip.dart';

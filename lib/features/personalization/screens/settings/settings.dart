@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-
+import 'package:mobile_app/data/repositories.authentication/authentication/authentication_repository.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/custom_shapes/container/primary_header_container.dart';
 import '../../../../common/widgets/list_tiles/settings_menu_tile.dart';
