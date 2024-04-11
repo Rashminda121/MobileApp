@@ -11,14 +11,20 @@ import '../../../../../utils/constants/enums.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
+import '../../../controllers/product_controller.dart';
+import '../../../models/produt_model.dart';
 
 class TProductMetaData extends StatelessWidget {
   const TProductMetaData({
-    super.key,
+    super.key, required this.product,
   });
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
+    final controller =ProductController.instance;
+    final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     final darkMode = THelperFunctions.isDarkMode(context);
 
     return Column(
@@ -33,7 +39,7 @@ class TProductMetaData extends StatelessWidget {
               backgroundColor: TColors.secondary.withOpacity(0.8),
               padding: const EdgeInsets.symmetric(
                   horizontal: TSizes.sm, vertical: TSizes.xs),
-              child: Text('25%',
+              child: Text('$salePercentage%',
                   style: Theme.of(context)
                       .textTheme
                       .labelLarge!
@@ -43,19 +49,20 @@ class TProductMetaData extends StatelessWidget {
 
             /// Price
 
-            Text('\$250',
+            if(product.productType==productType.single.toString() && product.salePrice>0)
+            Text('\$${product.price}',
                 style: Theme.of(context)
                     .textTheme
                     .titleSmall!
                     .apply(decoration: TextDecoration.lineThrough)),
-            const SizedBox(width: TSizes.spaceBtwItems),
-            const TProductPriceText(price: '175', isLarge: true),
+            if(product.productType==productType.single.toString() && product.salePrice>0) const SizedBox(width: TSizes.spaceBtwItems),
+            TProductPriceText(price: controller.getProductPrice(product), isLarge: true),
           ],
         ),
         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
         /// Title
-        const TProductTitleText(title: 'Black Nike Shoe'),
+        TProductTitleText(title: product.title),
         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
         /// Stock Status
@@ -64,7 +71,7 @@ class TProductMetaData extends StatelessWidget {
           children: [
             const TProductTitleText(title: 'Status'),
             const SizedBox(width: TSizes.spaceBtwItems),
-            Text('In Stock', style: Theme.of(context).textTheme.titleMedium),
+            Text(controller.getProductStockStatus(product.stock), style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: TSizes.spaceBtwItems / 1.5),
           ],
         ),
@@ -73,13 +80,13 @@ class TProductMetaData extends StatelessWidget {
         Row(
           children: [
             TCircularImage(
-              image: TImages.product1,
+              image: product.brand!=null?product.brand!.image : '',
               width: 32,
               height: 32,
               overlayColor: darkMode ? TColors.white : TColors.black,
             ),
-            const TBrandTitleWithVerifiedIcon(
-                title: 'Nike', brandTextSize: TextSizes.medium),
+            TBrandTitleWithVerifiedIcon(
+                title: product.brand!=null?product.brand!.name:'', brandTextSize: TextSizes.medium),
           ],
         )
       ],
