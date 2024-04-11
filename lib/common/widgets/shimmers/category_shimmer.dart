@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/common/widgets/loaders/shimmer.dart';
 
 import '../../../utils/constants/sizes.dart';
 
