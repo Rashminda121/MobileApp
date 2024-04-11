@@ -9,6 +9,7 @@ class TBillingAmountSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final CartController = CartController.instance;
+    final subTotal = CartController.totalCartPrice.value;
 
     return Column(
       children: [
@@ -17,7 +18,7 @@ class TBillingAmountSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Subtotal', style: Theme.of(context).textTheme.bodyMedium),
-            Text('\$256.0', style: Theme.of(context).textTheme.bodyMedium),
+            Text('\$$subTotal', style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
         const SizedBox(height: TSizes.spaceBtwItems / 2),
@@ -27,8 +28,7 @@ class TBillingAmountSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Shipping fee', style: Theme.of(context).textTheme.bodyMedium),
-            Text('\$6.0', style: Theme.of(context).textTheme.labelLarge),
-          ],
+            Text('\$&{TPricingCalculator.calculateShippingCost(subTotal, 'US')}', style: Theme.of(context).textTheme.labelLarge),
         ),
         const SizedBox(height: TSizes.spaceBtwItems / 2),
 
