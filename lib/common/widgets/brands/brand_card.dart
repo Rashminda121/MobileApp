@@ -11,10 +11,14 @@ import '../../../../../utils/helpers/helper_functions.dart';
 
 class TBrandCard extends StatelessWidget {
   const TBrandCard({
-    super.key,this.showBorder=true, this.onTap,
+    super.key,
+    this.showBorder = true,
+    this.onTap,
+    required this.brand,
   });
+  final BrandModel brand;
   final bool showBorder;
-  final void Function()?onTap;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -28,34 +32,33 @@ class TBrandCard extends StatelessWidget {
           children: [
             /// -- Icon
             Flexible(
-              child: TCircularImage (
+              child: TCircularImage(
                 isNetworkImage: false,
-                image: TImages.product1,
+                image: brand.image,
                 backgroundColor: Colors.transparent,
-                overlayColor: THelperFunctions.isDarkMode (context) ? TColors.white: TColors.black,
+                overlayColor: THelperFunctions.isDarkMode(context)
+                    ? TColors.white
+                    : TColors.black,
               ),
             ),
-            const SizedBox(width: TSizes.spaceBtwItems/2),
+            const SizedBox(width: TSizes.spaceBtwItems / 2),
 
             ///Text
             Expanded(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
-
                 children: [
-                  const TBrandTitleWithVerifiedIcon(title: 'Nike',brandTextSize: TextSizes.large),
-
+                  TBrandTitleWithVerifiedIcon(
+                      title: brand.name, brandTextSize: TextSizes.large),
                   Text(
-                    '256 products sample text',
+                    '${brand.productsCount ?? 0} products',
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                 ],
               ),
             )
-
-
           ],
         ),
       ),

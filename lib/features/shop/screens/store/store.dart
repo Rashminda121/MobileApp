@@ -20,6 +20,7 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final brandController = Get.put.(BrandController());
     return DefaultTabController(
       length: 5,
       child: Scaffold(
@@ -60,47 +61,46 @@ class StoreScreen extends StatelessWidget {
                           TSectionHeading(
                               title: 'Featured Brands', onPressed: ()=>Get.to(()=>const AllBrandsScreen())),
                           const SizedBox(height: TSizes.spaceBtwItems / 1.5),
-
-                          TGridLayout(
-                              itemCount: 4,
-                              mainAxisExtent: 80,
-                              itemBuilder: (_, index) {
-                                return const TBrandCard(showBorder: false);
-                              }),
+/// -- Brands Grid
+                    Obx(
+  () {
+    if (brandController.isLoading.value) {
+      return const TBrandsShimmer();
+    }
+    if (brandController.featuredBrands.isEmpty) {
+      return const Center(
+        child: Text(
+          'No Data Found!',
+          style: Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.white)));
+        
+      
+    }
+    return TGridLayout(
+      itemCount: brandController.featuredBrands.length,
+      mainAxisExtent: 80,
+      itemBuilder: (_, index) {
+        final brand = brandController.featuredBrands[index];
+        return TBrandCard(
+          showBorder: true,
+          brand: brand,
+          onTap: () => Get.to(() => BrandProducts(brand: brand)),;},                              },
+                              );
+                              },
+                      ),
                         ],
                       )),
 
-                  ///tabs----
-                  bottom: const TTabBar(
-                    tabs: [
-                      Tab(child: Text('Sports')),
-                      Tab(child: Text('Furniture')),
-                      Tab(child: Text('Electronics')),
-                      Tab(child: Text('Clothes')),
-                      Tab(child: Text('Cosmetics')),
-                    ],
-                  )),
-            ];
-          },
-          body: const TabBarView(
-            children: [
-            TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab(),
-              TCategoryTab()
 
-
-
-
-
-            ],
+                    bottom: TTabBar(
+              tabs: categories.map((category) => Tab(child: Text(category.name))).toList(),
+            ),
           ),
-        ),
+        ];
+      },
+      body: TabBarView(
+        children: categories.map((category) => TCategoryTab(category: category)).toList(),
       ),
-    );
-  }
-}
-
-
-
+    ),
+  ),
+);
+}}

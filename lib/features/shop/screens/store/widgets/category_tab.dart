@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../../common/widgets/brands/brand_show_case.dart';
@@ -13,29 +12,49 @@ class TCategoryTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = CategoryController.instance;
     return ListView(
       shrinkWrap: true,
-      physics:const NeverScrollableScrollPhysics(),
-      children:[
+      physics: const NeverScrollableScrollPhysics(),
+      children: [
         Padding(
-        padding: const EdgeInsets.all(TSizes.defaultSpace),
-        child: Column(
-          children: [
-            /// Brands
-            const TBrandShowcase(images: [TImages.product1,TImages.product1,TImages.product1]),
-            const TBrandShowcase(images: [TImages.product1,TImages.product1,TImages.product1]),
-            const SizedBox(height: TSizes.spaceBtwItems),
-      
-            ///products
-            TSectionHeading(title: "You Might Like",onPressed: (){}),
-            const SizedBox(height: TSizes.spaceBtwItems),
-            
-            TGridLayout(itemCount: 4, itemBuilder:(_,index)=>const TProductCardVertical()),
-            const SizedBox(height: TSizes.spaceBtwItems),
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          child: Column(
+            children: [
+              /// Brands
+              CategoryBrands(category: category),
+              const SizedBox(height: TSizes.spaceBtwItems),
 
-          ],
+              ///products
+           FutureBuilder(
+  (String categoryId, int limit: 4) => future: controller.getCategoryProducts(categoryId: categoryId),
+  builder: (context, snapshot) {
+
+/// Helper Function: Handle Loader, No Record, OR ERROR Message
+final response = TCloudHelperFunctions.checkMultiRecordState(
+  snapshot: snapshot,
+  Loader: const TVerticalProductShimmer(),
+);
+if (response == null) return response;
+
+/// Record Found!
+final products = snapshot.data!;
+
+
+    return Column(
+      children: [
+        1,
+        TSectionHeading(title: 'You might like', onPressed: () {}),
+        const SizedBox(height: TSizes.spaceBtwItems),
+        TGridLayout(
+          itemCount: 4,
+          itemBuilder: (context, index) => TProductCardVertical(
+            product: ProductModel.empty(),
+          ),
+        ), // Column
+      ],
+          ),
         ),
-      ),
       ],
     );
   }

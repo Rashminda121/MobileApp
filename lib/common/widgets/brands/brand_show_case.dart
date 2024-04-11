@@ -48,11 +48,13 @@ class TBrandShowcase extends StatelessWidget {
         backgroundColor: THelperFunctions.isDarkMode(context)
             ? TColors.darkerGrey
             : TColors.light,
-        child:Image(
-          fit: BoxFit.contain,
-          image: AssetImage(image),
-        ),
-      ),
+    child:CachedNetworkImage(
+  fit: BoxFit.contain,
+  imageUrl: image,
+  progressIndicatorBuilder: (context, url, downloadProgress) => const TShimmerEffect(width: 100, height: 100),
+  errorWidget: (context, url, error) => const Icon(Icons.error),
+),
+      
     );
   }
 }

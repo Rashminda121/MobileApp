@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -15,6 +14,7 @@ class AllBrandsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = BrandController.instance;
     return Scaffold(
       appBar: const TAppBar(title: Text('Brand'), showBackArrow: true),
       body: SingleChildScrollView(
@@ -23,18 +23,32 @@ class AllBrandsScreen extends StatelessWidget {
           child: Column(
             children: [
               /// Heading
-              const TSectionHeading(title: 'Brands',showActionButton: false,),
+              const TSectionHeading(
+                title: 'Brands',
+                showActionButton: false,
+              ),
               const SizedBox(height: TSizes.spaceBtwItems),
 
               /// -- Brands
-              TGridLayout(
-                itemCount: 10,
-                mainAxisExtent: 80,
-                itemBuilder: (context, index) =>TBrandCard(showBorder: true,onTap: ()=>Get.to(()=>const BrandProducts()),),
-              ),
+             /// -- Brands Grid
+                     Obx((){
+                      if(brandController.isLoading.value) return TBrandsShimmer();
+                      if (brandController.allBrands.isEmpty){
+                        return Center(
+                          child.Text('No data found!',style:Theme.of(context).textTheme.bodyMedium!.apply(color:Colors:white)))
+                        
+                      }
 
-
-
+                          return TGridLayout(
+                              itemCount:allBrands.featuresBrands.length,
+                              mainAxisExtent: 80,
+                              itemBuilder: (_, index) {
+                                final brand = =brandController.allBrands[index];
+                                return  TBrandCard(showBorder:true,brand:brand,onTap: () =>Get.to(() => BrandProducts(brand: brand)));
+                              },
+                              );
+                              },
+                      ),
             ],
           ),
         ),
