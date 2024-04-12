@@ -26,7 +26,23 @@ class CheckoutController extends GetxController {
             children: [
             const TSectionHeading (title: 'Select Payment Method', showActionButton: false),
             const SizedBox (height: TSizes.spaceBtwSections),
-            TPaymentTile (paymentMethod: PaymentMethod Model (name: 'Paypal', image: TImages.paypal))
+            TPaymentTile (paymentMethod: PaymentMethod Model (name: 'Paypal', image: TImages.paypal)),
+            const SizedBox(height: TSizes.spaceBtwItems/2),
+            TPaymentTile (paymentMethod: PaymentMethod Model (name: 'Google Pay', image: TImages.googlePay)),
+            const SizedBox(height: TSizes.spaceBtwItems/2),
+            TPaymentTile (paymentMethod: PaymentMethod Model (name: 'Apple Pay', image: TImages.applePay)),
+            const SizedBox(height: TSizes.spaceBtwItems/2),
+            TPaymentTile (paymentMethod: PaymentMethod Model (name: 'VISA', image: TImages.visa)),
+            const SizedBox(height: TSizes.spaceBtwItems/2),
+            TPaymentTile (paymentMethod: PaymentMethod Model (name: 'Master Card', image: TImages.masterCard)),
+            const SizedBox(height: TSizes.spaceBtwItems/2),
+            TPaymentTile (paymentMethod: PaymentMethod Model (name: 'Paytm', image: TImages.paytm)),
+            const SizedBox(height: TSizes.spaceBtwItems/2),
+            TPaymentTile (paymentMethod: PaymentMethod Model (name: 'Paystack', image: TImages.paystack)),
+            const SizedBox(height: TSizes.spaceBtwItems/2),
+            TPaymentTile (paymentMethod: PaymentMethod Model (name: 'Credit Card', image: TImages.creditCard)),
+            const SizedBox(height: TSizes.spaceBtwItems/2),
+
             ]
           ), // Column
         ), // Container
