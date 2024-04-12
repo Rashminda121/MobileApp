@@ -7,7 +7,6 @@ import 'package:mobile_app/routes/app_routes.dart';
 import 'package:mobile_app/utils/constants/colors.dart';
 import 'package:mobile_app/utils/theme/theme.dart';
 
-import 'features/authentication/screens/onboarding/onboarding.dart';
 
 
 
@@ -20,16 +19,11 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-
-      initialBinding: GeneralBindings(),
-      home: const OnboardingScreen(),
-
       initialBinding:GeneralBindings(),
 
       getPages: AppRoutes.pages,
 
       home: const Scaffold(backgroundColor: TColors.primary, body: Center(child: CircularProgressIndicator(color: Colors.white))),
-
     );
   }
 }

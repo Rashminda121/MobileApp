@@ -4,7 +4,6 @@ import 'package:mobile_app/data/repositories.authentication/authentication/authe
 import 'package:mobile_app/features/personalization/controllers/user_controller.dart';
 import 'package:mobile_app/firebase_options.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'firebase_options.dart';
 import 'app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
