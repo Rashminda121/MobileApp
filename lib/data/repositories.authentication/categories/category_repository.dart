@@ -1,10 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:mobile_app/common/widgets/firebase/TFirebaseStorage.dart';
-import 'package:mobile_app/data/repositories.authentication/categories/platformException.dart';
 import 'package:mobile_app/data/repositories.authentication/firebase_exception.dart';
 
 import '../../../features/shop/models/category_model.dart';
@@ -24,9 +21,7 @@ class CategoryRepository extends GetxController {
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
    
-    } catch (e) {
     }
-    throw 'Something went wrong. Please try again';
   }
 
 /// Get Sub Categories
@@ -35,22 +30,21 @@ class CategoryRepository extends GetxController {
     try {
       final storage = Get.put(TFirebaseStorageService());
 
-      for (final category in categories) {
+      for (var category in categories) {
         final file = await storage.getImageDataFromAssets(category.image);
         final url = await storage.uploadImageData('Categories', file, category.name);
         category.image = url;
 
         await _db.collection("Categories").doc(category.id).set(category.toJson());
       }
-    } on FirebaseException catch (e, stackTrace) {
-      print('FirebaseException: $e');
-      print('stackTrace: $stackTrace');
-      throw TFirebaseException(e.code).message;
-    } on PlatformException catch (e, stackTrace) {
-      print('PlatformException: $e');
-      print('stackTrace: $stackTrace');
+    } on FirebaseException catch (e) {
       
-      rethrow;
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+     throw TPlatformException(e.code).message;
+    }catch (e) {
+      
+      throw 'Failed to upload categories: $e';
     }
   }
 
