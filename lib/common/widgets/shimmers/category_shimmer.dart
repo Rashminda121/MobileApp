@@ -5,9 +5,9 @@ import '../../../utils/constants/sizes.dart';
 
 class TCategoryShimmer extends StatelessWidget {
   const TCategoryShimmer({
-    Key? key,
+    super.key,
     this.itemCount = 6,
-  }) : super(key: key);
+  });
 
   final int itemCount;
 

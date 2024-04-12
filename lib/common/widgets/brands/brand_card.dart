@@ -6,25 +6,28 @@ import '../../../../../common/widgets/images/t_circular_image.dart';
 import '../../../../../common/widgets/texts/t_brand_title_text_with_verified_icon.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/enums.dart';
-import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 
 class TBrandCard extends StatelessWidget {
   const TBrandCard({
-    super.key,this.showBorder=true, this.onTap,
+    super.key,
+    
+    this.onTap,
+    required this.showBorder,
     required this.brand,
   });
   final bool showBorder;
   final BrandModel brand;
-  final void Function()?onTap;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
+    final isDark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: onTap,
       child: TRoundedContainer(
         padding: const EdgeInsets.all(TSizes.sm),
-        showBorder: false,
+        showBorder: showBorder,
         backgroundColor: Colors.transparent,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,15 +35,13 @@ class TBrandCard extends StatelessWidget {
             /// -- Icon
             Flexible(
               child: TCircularImage (
-                isNetworkImage: false,
+                isNetworkImage: true,
                 image: brand.image,
                 backgroundColor: Colors.transparent,
-               overlayColor: THelperFunctions.isDarkMode(context)
-                    ? TColors.white
-                    : TColors.black,
+                overlayColor: THelperFunctions.isDarkMode (context) ? TColors.white: TColors.black,
               ),
             ),
-            const SizedBox(width: TSizes.spaceBtwItems/2),
+            const SizedBox(width: TSizes.spaceBtwItems / 2),
 
             ///Text
             Expanded(
@@ -49,12 +50,14 @@ class TBrandCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
 
                 children: [
-                  TBrandTitleWithVerifiedIcon(title: brand.name, brandTextSize: TextSizes.large),
+                 TBrandTitleWithVerifiedIcon(
+                      title: brand.name, brandTextSize: TextSizes.large),
 
                   Text(
                     '${brand.productsCount ?? 0} products',
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.labelMedium,),
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
                 ],
               ),
             )

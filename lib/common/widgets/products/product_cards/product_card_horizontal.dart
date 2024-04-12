@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mobile_app/common/widgets/products/favourite_icon/favourite_icon.dart';
+import 'package:mobile_app/features/shop/models/product_model.dart';
 
 import '../../../../features/shop/screens/store/widgets/rounded_container.dart';
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
-import '../../icons/t_circular_icon.dart';
 import '../../images/t_rounded_image.dart';
 import '../../texts/product_price_text.dart';
 import '../../texts/product_title_text.dart';
@@ -23,8 +22,8 @@ class TProductCardHorizontal extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     
-    final controller ProductController.instance;
-    final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
+    //final controller ProductController.instance;
+    //final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     
     return Container(
       width: 310,

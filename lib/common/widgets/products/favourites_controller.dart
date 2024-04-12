@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_app/data/repositories.authentication/product/product_repository.dart';
 import 'package:mobile_app/features/shop/models/product_model.dart';
