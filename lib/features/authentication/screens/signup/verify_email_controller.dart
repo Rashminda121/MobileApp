@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_app/common/widgets/success_screen/success_screen.dart';
 import 'package:mobile_app/data/repositories.authentication/authentication/authentication_repository.dart';

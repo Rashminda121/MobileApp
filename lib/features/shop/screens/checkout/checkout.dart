@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_app/features/shop/screens/checkout/widgets/billing_address_section.dart';
-import 'package:mobile_app/features/shop/screens/checkout/widgets/billing_amount_section.dart';
-import 'package:mobile_app/features/shop/screens/checkout/widgets/billing_payment_section.dart';
+//import 'package:mobile_app/features/shop/screens/checkout/widgets/billing_amount_section.dart';
+//import 'package:mobile_app/features/shop/screens/checkout/widgets/billing_payment_section.dart';
 
 import '../../../../common/styles/rounded_container.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
@@ -14,7 +14,7 @@ import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/helpers/helper_functions.dart';
-import '../cart/widgets/cart_items.dart';
+//import '../cart/widgets/cart_items.dart';
 
 class CheckoutScreen extends StatelessWidget {
   const CheckoutScreen({super.key});
@@ -35,7 +35,7 @@ class CheckoutScreen extends StatelessWidget {
           child: Column(
             children: [
               ///-- Items in Cart
-              const TCartItems(showAddRemoveButtons: false),
+              //const TCartItems(showAddRemoveButtons: false),
               const SizedBox(height: TSizes.spaceBtwSections),
 
               ///coupon textfield
@@ -51,7 +51,7 @@ class CheckoutScreen extends StatelessWidget {
                   children: [
                     /// Pricing
 
-                    TBillingAmountSection(),
+                    //TBillingAmountSection(),
                     SizedBox(height: TSizes.spaceBtwItems),
 
                     ///Divider
@@ -59,7 +59,7 @@ class CheckoutScreen extends StatelessWidget {
                     SizedBox(height: TSizes.spaceBtwItems),
 
                     /// PaymentMethods
-                    TBillingPaymentSection(),
+                    //TBillingPaymentSection(),
                     SizedBox(height: TSizes.spaceBtwItems),
 
                     ///Address

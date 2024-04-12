@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mobile_app/features/authentication/controllers/forget_password_controller.dart';
 import 'package:mobile_app/utils/validatos/validation.dart';

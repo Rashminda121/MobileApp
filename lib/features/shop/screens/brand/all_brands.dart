@@ -1,10 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:mobile_app/features/shop/controllers/brand_controller.dart';
-import 'package:mobile_app/features/shop/models/brand_model.dart';
 import 'package:mobile_app/features/shop/screens/brand/brand_shimmer.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/brands/brand_card.dart';

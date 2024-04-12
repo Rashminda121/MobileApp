@@ -3,7 +3,6 @@ import 'package:mobile_app/common/widgets/shimmers/vertical_product_shimmer.dart
 import 'package:mobile_app/features/shop/controllers/brand_controller.dart';
 import 'package:mobile_app/features/shop/models/brand_model.dart';
 import 'package:mobile_app/features/shop/models/product_model.dart';
-import 'package:mobile_app/utils/helpers/cloud_helper_functions.dart';
 
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/brands/brand_card.dart';
@@ -11,7 +10,7 @@ import '../../../../common/widgets/products/sortable/sortable_products.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class BrandProducts extends StatelessWidget {
-  const BrandProducts({Key? key, required this.brand});
+  const BrandProducts({super.key, required this.brand});
 
   final BrandModel brand;
 

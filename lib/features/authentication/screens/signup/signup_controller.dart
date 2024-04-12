@@ -5,7 +5,6 @@ import 'package:mobile_app/data/repositories.authentication/user/user_repository
 import 'package:mobile_app/features/authentication/screens/signup/verify_email.dart';
 import 'package:mobile_app/utils/models/user_model.dart';
 import 'package:mobile_app/utils/helpers/network_manager.dart';
-import 'package:mobile_app/utils/models/user_model.dart';
 import 'package:mobile_app/utils/popups/full_screen_loader.dart';
 import 'package:mobile_app/utils/constants/image_strings.dart';
 import 'package:mobile_app/utils/popups/loaders.dart';

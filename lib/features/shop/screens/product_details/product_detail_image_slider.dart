@@ -1,18 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:mobile_app/common/widgets/products/favourite_icon/favourite_icon.dart';
 import 'package:mobile_app/features/shop/controllers/product/images_controller.dart';
 import 'package:mobile_app/features/shop/models/product_model.dart';
 
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
-import '../../../../../common/widgets/icons/t_circular_icon.dart';
 import '../../../../../common/widgets/images/t_rounded_image.dart';
 import '../../../../../utils/constants/colors.dart';
-import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 
@@ -41,7 +37,7 @@ final ProductModel product;
              SizedBox(
               height: 400,
               child: Padding(
-                padding: EdgeInsets.all(TSizes.productImageRadius * 2),
+                padding: const EdgeInsets.all(TSizes.productImageRadius * 2),
                 child: Center(
                     child: Obx((){
                       final image= controller.selectedProductImage.value;

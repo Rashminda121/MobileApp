@@ -13,7 +13,7 @@ import '../../../../common/widgets/icons/t_circular_icon.dart';
 import '../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
 import '../../../../features/shop/screens/home/home.dart';
-import '../../../../features/shop/models/product_model.dart'; // Import ProductModel
+// Import ProductModel
 import '../../../../utils/constants/sizes.dart';
 
 class FavouriteScreen extends StatelessWidget {

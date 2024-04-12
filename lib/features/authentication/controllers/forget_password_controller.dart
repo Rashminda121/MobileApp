@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:mobile_app/data/repositories.authentication/authentication/authentication_repository.dart';
 import 'package:mobile_app/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:mobile_app/utils/constants/image_strings.dart';

@@ -5,6 +5,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:mobile_app/features/shop/models/product_model.dart';
 import 'package:mobile_app/features/shop/screens/product_details/widgets/bottom_add_to_cart.dart';
 import 'package:mobile_app/features/shop/screens/product_details/widgets/product_attributes.dart';
+//import 'package:mobile_app/features/shop/screens/product_details/widgets/bottom_add_to_cart.dart';
 import 'package:mobile_app/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
 import 'package:mobile_app/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:mobile_app/features/shop/screens/product_details/widgets/rating_share_widget.dart';
@@ -17,19 +18,17 @@ import '../product_reviews/product_reviews.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key, required this.product});
-
-  final ProductModel product;
-
+final ProductModel product;
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
+    
     return Scaffold(
       bottomNavigationBar: const TBottomAddToCart(),
       body: SingleChildScrollView(
         child: Column(
           children: [
             /// product image slider
-             TProductImageSlider(product: product,),
+            const TProductImageSlider(),
 
             ///product details
             Padding(
@@ -43,13 +42,11 @@ class ProductDetailScreen extends StatelessWidget {
                   const TRatingAndShare(),
 
                   /// - Price, Title, Stock, & Brand
-                  TProductMetaData(product: product,),
+                  const TProductMetaData(),
 
                   /// -- Attributes
-
-
-                  // if (product.productType == ProductType.variable.toString()) TProductAttributes(product: product,),
-                  // if (product.productType == ProductType.variable.toString())const SizedBox(height: TSizes.spaceBtwSections),
+                  const TProductAttributes(),
+                  const SizedBox(height: TSizes.spaceBtwSections),
 
                   /// -- Checkout Button
                   SizedBox(
@@ -65,8 +62,8 @@ class ProductDetailScreen extends StatelessWidget {
                     showActionButton: false,
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                  ReadMoreText(
-                    product.description ?? '',
+                  const ReadMoreText(
+                    'This is a sleeveless vest from Nike, available in a stylish blue color. It is made from high-quality, breathable materials for maximum comfort and performance. Perfect for running, working out, or any other activity where you need freedom of movement and a cool, comfortable fit.',
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show More',

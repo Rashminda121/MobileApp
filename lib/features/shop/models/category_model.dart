@@ -1,11 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 
 class CategoryModel {
   String id;
   String name;
   String image;
-  String parentId;
+  String prentId;
   bool isFeatured;
 
   CategoryModel({
@@ -13,7 +12,7 @@ class CategoryModel {
     required this.name,
     required this.image,
     required this.isFeatured,
-    this.parentId = '',
+    this.prentId = '',
   });
 
   /// Empty Helper Function
@@ -23,7 +22,7 @@ class CategoryModel {
   Map<String, dynamic> toJson() => {
     'Name': name,
     'Image': image,
-    'ParentId': parentId,
+    'PrentId': prentId,
     'IsFeatured': isFeatured,
   };
 
@@ -37,7 +36,7 @@ class CategoryModel {
         id: document.id,
         name: data['Name'] ?? '',
         image: data['Image'] ?? '',
-        parentId: data['ParentId'] ?? '',
+        prentId: data['PrentId'] ?? '',
         isFeatured: data['IsFeatured'] ?? false,
       );
     } else {

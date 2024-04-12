@@ -8,7 +8,6 @@ import '../../../../../common/widgets/images/t_rounded_image.dart';
 import '../../../../../common/widgets/shimmers/shimmer.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
-import '../../../controllers/home_controller.dart';
 
 class TPromoSlider extends StatelessWidget {
   const TPromoSlider({
