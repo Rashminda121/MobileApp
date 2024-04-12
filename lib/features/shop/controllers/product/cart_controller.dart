@@ -1,5 +1,8 @@
 
 import 'package:get/get.dart';
+import 'package:mobile_app/features/shop/models/product_model.dart';
+import 'package:mobile_app/utils/constants/enums.dart';
+import 'package:mobile_app/utils/popups/loaders.dart';
 
 class CartController extends GetxController {
   static CartController get instance => Get.find();
@@ -91,7 +94,7 @@ class CartController extends GetxController {
   }
 
 
-  voide removeFromCartDialog (int index){
+  void removeFromCartDialog (int index){
     Get.defaultDialog(
       title: 'Remove Product',
       middleText: 'Are you sure you want to remove this item from the cart?',

@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:mobile_app/common/widgets/texts/section_heading.dart';
+import 'package:mobile_app/utils/constants/image_strings.dart';
+import 'package:mobile_app/utils/constants/sizes.dart';
 
 class CheckoutController extends GetxController {
   static CheckoutController get instance => Get.find();
