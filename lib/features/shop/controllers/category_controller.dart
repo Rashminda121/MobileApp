@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:mobile_app/data/repositories.authentication/product/product_repository.dart';
+import 'package:mobile_app/features/shop/models/product_model.dart';
 
 import 'package:mobile_app/utils/popups/loaders.dart';
 
@@ -37,5 +39,10 @@ class CategoryController extends GetxController {
       isLoading.value=false;
     }
   }
-
+Future<List<ProductModel>> getCategoryProducts({required String categoryId, int limit = 4}) async {
+  // Fetch limited (4) products against each subcategory;
+  final products = await ProductRepository.instance.getProductsForCategory(categoryId: categoryId, limit: limit);
+  return products;
 }
+  }
+

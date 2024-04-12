@@ -38,7 +38,4 @@ class TPricingCalculator {
   // static double calculateCartTotal(CartModel cart) {
   //   return cart.items.map((e) => e.price).fold(0, (previousPrice, currentPrice) => previousPrice + (currentPrice ?? 0));
   // }
-
-
-
 }

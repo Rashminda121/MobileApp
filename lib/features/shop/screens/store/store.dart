@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:mobile_app/features/shop/controllers/brand_controller.dart';
+
 import 'package:mobile_app/features/shop/controllers/category_controller.dart';
 import 'package:mobile_app/features/shop/screens/store/widgets/category_tab.dart';
+import 'package:mobile_app/features/shop/screens/brand/brand_shimmer.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/appbar/tabbar.dart';
 import '../../../../common/widgets/brands/brand_card.dart';
@@ -21,6 +25,7 @@ class StoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final categories = CategoryController.instance.featuredCategories;
+    final brandController = Get.put(BrandController());
     return DefaultTabController(
       length: categories.length,
       child: Scaffold(
@@ -28,7 +33,7 @@ class StoreScreen extends StatelessWidget {
           title:
               Text('Store', style: Theme.of(context).textTheme.headlineMedium),
           actions: [
-            TCartCounterIcon(onPressed: () {}),
+            //TCartCounterIcon(onPressed: () {}),
           ],
         ),
         body: NestedScrollView(
@@ -64,12 +69,21 @@ class StoreScreen extends StatelessWidget {
                                 Get.to(() => const AllBrandsScreen())),
                         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
-                        TGridLayout(
-                            itemCount: 4,
-                            mainAxisExtent: 80,
-                            itemBuilder: (_, index) {
-                              return const TBrandCard(showBorder: false);
-                            }),
+                        Obx(
+                          (){
+                            if (brandController.isLoading.value) return const TBrandsShimmer();
+                            if (brandController.featuredBrands.isEmpty){
+                              return Center(child: Text('No Data Found!', style: Theme.of(context).textTheme.bodyMedium!.apply(color:Colors.white)));
+                            }
+                            return TGridLayout(
+                              itemCount: brandController.featuredBrands.length,
+                              mainAxisExtent: 80,
+                              itemBuilder: (_, index) {
+                                final brand = brandController.featuredBrands[index];
+                                return TBrandCard(showBorder: true, brand: brand,);
+                              },);
+                          },
+                        ),
                       ],
                     )),
 

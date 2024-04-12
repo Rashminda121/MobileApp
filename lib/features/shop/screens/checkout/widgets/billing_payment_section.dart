@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../../common/styles/rounded_container.dart';
@@ -13,6 +12,7 @@ class TBillingPaymentSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = CheckoutController.instance;
 
     final dark = THelperFunctions.isDarkMode(context);
     return Column(
@@ -20,9 +20,9 @@ class TBillingPaymentSection extends StatelessWidget {
         TSectionHeading(
           title: 'Payment Method',
           buttonTitle: 'Change',
-          onPressed: (){},
+          onPressed: () {},
         ),
-        const SizedBox(height: TSizes.spaceBtwItems/2),
+        const SizedBox(height: TSizes.spaceBtwItems / 2),
         Row(
           children: [
             TRoundedContainer(
@@ -35,8 +35,8 @@ class TBillingPaymentSection extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
             ),
-            const SizedBox(height: TSizes.spaceBtwItems/2),
-            Text('Paypal',style: Theme.of(context).textTheme.bodyLarge),
+            const SizedBox(height: TSizes.spaceBtwItems / 2),
+            Text('Paypal', style: Theme.of(context).textTheme.bodyLarge),
           ],
         )
       ],

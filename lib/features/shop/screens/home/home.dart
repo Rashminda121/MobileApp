@@ -56,7 +56,7 @@ class HomeScreen extends StatelessWidget {
 
                         ///categories
 
-                        THomeCategories(),
+                       
                       ],
                     ),
                   ),

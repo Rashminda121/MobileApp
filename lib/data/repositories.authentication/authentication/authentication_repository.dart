@@ -9,7 +9,8 @@ import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:mobile_app/features/authentication/screens/signup/verify_email.dart';
-import 'package:mobile_app/navigation_menu.dart'; // Add this line to import PlatformException
+import 'package:mobile_app/navigation_menu.dart';
+import 'package:mobile_app/utils/local_storage/storage_utility.dart'; // Add this line to import PlatformException
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -30,6 +31,7 @@ class AuthenticationRepository extends GetxController {
     final user = _auth.currentUser;
     if (user != null) {
       if (user.emailVerified) {
+        await TLocalStorage.init(user.uid);
         Get.offAll(() => const NavigationMenu());
       } else {
         Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email));
